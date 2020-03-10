@@ -1,0 +1,150 @@
+\documentclass{turabian-thesis}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{pslatex}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{paralist}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol} 
+\usepackage[hidelinks]{hyperref}
+\usepackage{nameref}
+
+\DeclareUnicodeCharacter{2215}{\textminus}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\algdef{SE}[DOWHILE]{Do}{DoWhile}{\algorithmicdo}[1]{\algorithmicwhile\ #1}%
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{claim}{Claim}
+\newtheorem{definition}{Definition}
+\newtheorem{problem}{Problem}
+
+\newcounter{case}[section]
+\newenvironment{case}[1][]{\refstepcounter{case}\par\medskip
+   \textbf{Case~\thecase. #1} \rmfamily}{\medskip}
+   
+\newcounter{subcase}[case]
+\newenvironment{subcase}[1][]{\refstepcounter{subcase}\par\medskip
+   \textbf{Case~\thecase.\thesubcase. #1} \rmfamily}{\medskip}
+
+\begin{document}
+
+\frontmatter
+\thispagestyle{empty}
+
+\begin{center}
+   
+   \textbf{hybrid model}
+   
+   \vspace*{\baselineskip} 
+      
+   A THESIS \\
+   Presented to the Department of Computer Science and Computer Engineering \\
+   California State University, Long Beach
+   
+   \vspace*{\baselineskip} 
+
+   In Partial Fulfillment \\
+   of the Requirements for the Degree \\
+   Master of Science in Computer Science \\
+   Option in Computer Science
+   
+   \vspace*{\baselineskip} 
+
+   Committee Members: \\
+   
+   \vspace*{\baselineskip} 
+
+   By Ruben Rosales \\
+   May 2020
+\end{center}
+
+\pagebreak
+
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+\tableofcontents
+\listofillustrations
+
+\mainmatter
+
+\chapter{Introduction}
+In this thesis, we study interpretable machine learning as applied to complex-valued radio signals. Scientists have studied the use of several machine learning methods such as Convolutional Neural Networks, Recurrent Neural Networks, and Support Vector Machines for time series classification. These methods, however, fall short of allowing users to visualize patterns within their dataset and . To address this issue, we propose a hybrid interpretable model that can be extended to any time series dataset. Our model consists of two models. The first is an ensemble method of classifiers that functions as our black box method. The second is a white-box model that encodes time series as images for each signal and outputs all images that have been correctly classified.
+
+We study the adaption of deep learning models to complex-valued radio signals. We compare the deep learning models such as CNN’s have become ever-increasingly powerful and widely used but their complex nature makes it difficult for users to understand what is going on so as black box models get more popular the need for an interpretable accomplice is needed so we propose a hybrid model consisting of a black box for classification and an interpretable white-box model which highlights characteristics of a time series for users to understand. 
+
+The growth of mobile devices and demand for wireless data has created a need for  High quality spectrum sensing and adaptation to improve spectral allocation and interference mitigation is an important route by which we may achieve this.  however have been constrained to relatively specialized solutions which lack the generality needed to deal with a complex and growing number emitter types, interference types and propagation environments. [7] [6] [9]
+This is a significant challenge in the community as expert systems designed to perform well on specialized tasks often lack flexibility and can be expensive and tedious to develop analytically
+
+Building upon successful strategies from image and voice recognition domains in machine learning, we demonstrate an approach in the radio using Convolutional Neural Networks (CNNs) and Deep Neural Networks (DNNs) which offers flexibility to learn features across a wide range of tasks and demonstrates improved classification accuracy against current day approaches.  Existing methods, however, fall short of allowing users to visualize patterns within their dataset. To address this issue, we propose a hybrid interpretable model that can be extended to any time series dataset. Our model consists of two models. The first is an ensemble method of classifiers that functions as our black box method. The second is a white-box model that encodes time series as images for each signal and outputs all images that have been correctly classified.
+\section{Contributions}
+
+\section{Models}
+Our black box method is composed of two types of neural networks, Convolutional Neural Networks and Long Short Term Memory networks.
+
+CNN
+Our CNN has an architecture consisting of 3 convolutional layers each followed by a batch normalization and dropout layer then finally connected to two dense layers (Figure X). We found no improvements in performance when we attempted to make it deeper by adding additional convolutional layers as well as skip connections.  
+
+LSTM
+We wanted to keep our LSTM network as small as possible, for X purposes, so we went with two LSTM layers of 128 hidden states and a dropout rate of 4/10  followed by a dense layer of 128 connections. We attempted different state sizes but found 128 to be the smallest number with the best consistent performance.
+
+
+\section{black box}
+Our model is constructed of four different architectures, 2 LSTM and 2 CNN’s, that are concatenated at the dense layer. The four features we use are amplitude and phase of each level of decomposition for HV and VV. We chose four because we wanted to take into consideration both HV / VV in the event that one had more descriptive features than the other. Wavelet decomposition produces a complex value but that is unusable in a standard neural network due to loss of information unless we move to a complex LSTM but as stated in {} there isn’t a significant increase in accuracy. 
+
+\section{white box}
+Our white box is composed of a model that takes in raw data as an input and converts each signal into an image through the MTF method. We then pass those images through a CNN and those that are correctly classified are shown to the user.
+
+In order to classify those images we created a CNN for it specifically and avoided using our existing CNN in order to make it deeper and increase performance when images aren’t that classifiable. We explored several architectures, such as, ResNet, Inception-v4, and AlexNet but we decided to create an architecture similar to AlexNet due to the variation and size of datasets we used we couldn’t create a model deeper or more complex than it otherwise performance would drop because we didn’t have enough data to properly train it. We were able to achieve 60% accuracy on our dataset.
+
+\section{Notation}
+
+\section{Layout}
+
+\chapter{Problem Statement}
+
+
+\chapter{Related Work}
+ 
+
+\chapter{Markov Transition Fields}
+% We propose a framework similar to [] for encoding dynamical transition statistics,
+% but we continue their work by considering ith order Markov transition probabilities.
+% Given a time series X, we decompose its magnitude axis into two separate
+% properties by representing it as a polar coordinate, Xangular and Xradial. We then
+% identify the Q quantile bins for both properties and the temporal values Xtime
+% and assign each x ∈ Xangular, Xradial, Xtime to its corresponding bin qj (j in
+% [1, Q]). Thus we construct three QxQ adjacency transition matrices, Wangular,
+% Wradial, Wtime, by counting transitions among quantile bins in the manner of a
+% ith order Markov chain along the time axis.
+
+% W does not take into account the temporal axis so to prevent any information
+% loss we construct a Markov Transition Field (MTF) for each W. The MTF
+% denotes the probability of transitioning from qi to qj for each x ∈ X. This,
+% in turn, allows us to consider the transition probability on the magnitude and
+% temporal axis.
+
+% As described in [] the MTF encodes the multi-span transition probabilities
+% of the time series, but given that we have three different M’s we modify their
+% approach and consider each M to be a separate color channel of RGB where
+% Mangular is red, Mtime is blue, Mradial is green. We perform linear interpolation
+% on each M individually to extend the probabilities to be within the range of 0 and 255.
+
+\chapter{Main Results}
+
+\chapter{Conclusion}
+\label{chap:conclusion}
+
+
+% \bibliography{../references/main}
+% \bibliographystyle{plain} 
+
+\end{document}
