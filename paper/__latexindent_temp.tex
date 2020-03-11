@@ -84,14 +84,20 @@ In this thesis, we study interpretable machine learning as applied to complex-va
 [add how most time series are classified]
 These methods, however, fall short of allowing users to visualize patterns within their dataset and (). 
 
-To address this issue, we propose an interpretable hybrid  model that can be extended to any time series dataset. Our architecture is composed of two models, an ensemble method of classifiers that functions as a black box method, and a white-box model that encodes time series as images, attemps to classify them through a CNN, and outputs all images correctly classified in both black-box and white-box method.
+To address this issue, we propose an interpretable hybrid  model that can be extended to any time series dataset. Our model consists of two models. The first is an ensemble method of classifiers that functions as a black box method. The second is a white-box model that encodes time series as images and outputs all images that have been correctly classified.
 
-In our black-box model, we analyze  deep learning models such as CNN’s which have become increasingly popular and widely used in the last decade but their complex nature makes it difficult for users to understand what is going on. So, as black-box models get more popular the need for an interpretable accessory? is needed so we propose a hybrid model consisting of a black box for classification and an interpretable white-box model which highlights characteristics of a time series for users to understand.
+We study the adaption of deep learning models to complex-valued radio signals. We compare the deep learning models such as CNN’s have become ever-increasingly powerful and widely used but their complex nature makes it difficult for users to understand what is going on so as black-box models get more popular the need for an interpretable accomplice is needed so we propose a hybrid model consisting of a black box for classification and an interpretable white-box model which highlights characteristics of a time series for users to understand. 
+The growth of mobile devices and demand for wireless data has created a need for  High quality spectrum sensing and adaptation to improve spectral allocation and interference mitigation is an important route by which we may achieve this.  however have been constrained to relatively specialized solutions which lack the generality needed to deal with a complex and growing number emitter types, interference types and propagation environments.
+This is a significant challenge in the community as expert systems designed to perform well on specialized tasks often lack flexibility and can be expensive and tedious to develop analytically
 
 
 \section{The need for interpretable models in management problems}
-The growth of mobile devices and demand for wireless data has created a need for igh quality spectrum sensing and adaptation to improve spectral allocation and interference mitigation is an important route by which we may achieve this.  however have been constrained to relatively specialized solutions which lack the generality needed to deal with a complex and growing number emitter types, interference types and propagation environments.
-This is a significant challenge in the community as expert systems designed to perform well on specialized tasks often lack flexibility and can be expensive and tedious to develop analytically.
+
+
+
+
+
+Building upon successful strategies from image and voice recognition domains in machine learning, we demonstrate an approach in the radio using Convolutional Neural Networks (CNNs) and Deep Neural Networks (DNNs) which offers flexibility to learn features across a wide range of tasks and demonstrates improved classification accuracy against current day approaches.  Existing methods, however, fall short of allowing users to visualize patterns within their dataset. To address this issue, we propose a hybrid interpretable model that can be extended to any time series dataset. Our model consists of two models. The first is an ensemble method of classifiers that functions as our black box method. The second is a white-box model that encodes time series as images for each signal and outputs all images that have been correctly classified.
 
 \section{Contributions}
 \section{Data}
@@ -113,7 +119,6 @@ We normalize all data using L2 norm and format our data by each subsequent wavel
 
 \section{What is it?}
 [what is feature extraction]
-
 Data pre-processing is concerned with the analysis and manipulation of the collected spectrum data with the aim to arrive at potentially good wireless data representations. The raw samples organized into data vectors rk in the previous block are pipelined as input for signal processing (SP) tools that analyze, process and transform the
 data to arrive at simple data representations such as frequency,
 amplitude, phase and spectrum, or more complex features
@@ -242,9 +247,7 @@ We implement the discrete wavelet transform as a filter-bank which means it’s 
 
 This section gives an overview of the theoretical background of concepts discussed in this work. 
 
-Machine learning algorithms can simply be seen as learning a target function (f) that maps input data (X) to an output (Y). There are several techniques to make this work but we focus on nonparametric algorithms, namely Convolutional Neural Networks (CNN) and Long Short Term Memory networks (LSTM). Nonparametric algorithms are algorithms that attempt to make minimal assumptions about the form of the function so they can learn any form from data provided to it. An example would be a neural network because it has no prior knowledge about what it’s classifying and attempts to generalize any new data points that it has not seen before.
-
-
+Machine learning algorithms can simply be seen as learning a target function (f) that maps input data (X) to an output (Y). There are several techniques to make this work but we focus on nonparametric algorithms, including Convolutional Neural Networks (CNN) and Long Short Term Memory networks (LSTM). Nonparametric algorithms are algorithms that attempt to make minimal assumptions about the form of the function so they can learn any form from data provided to it. An example would be a neural network because it has no prior knowledge about what it’s classifying and attempts to generalize any new data points that it has not seen before.
 [cnn]
 
 A Convolutional Neural Network is a type of deep neural network that can be applied to different domains such as computer vision or time series analysis. It consists of an input and output layer as well as hidden layers. A convolution is an operation between a vector of weights w against an input x. It consists of taking the dot product between m and x were in steps of a filter size defined by n.
@@ -267,14 +270,10 @@ The network structure is illustrated in Figure 1(b) . The arrows are function ma
 
 
 [explain architectures]
-
-\subsection{CNN}
-
+CNN
 Our CNN has an architecture consisting of 3 convolutional layers each followed by a batch normalization and dropout layer then finally connected to two dense layers (Figure X). We found no improvements in performance when we attempted to make it deeper by adding additional convolutional layers as well as skip connections.  
 
-
-
-\subsection{LSTM}
+LSTM
 We wanted to keep our LSTM network as small as possible, for X purposes, so we went with two LSTM layers of 128 hidden states and a dropout rate of 4/10  followed by a dense layer of 128 connections. We attempted different state sizes but found 128 to be the smallest number with the best consistent performance.
 
 
@@ -289,7 +288,7 @@ Our model is constructed of four different architectures, 2 LSTM and 2 CNN’s, 
 \section{white box}
 Our white box is composed of a model that takes in raw data as an input and converts each signal into an image through the MTF method. We then pass those images through a CNN and those that are correctly classified are shown to the user.
 
-In order to classify those images we created a CNN for it specifically and avoided using our existing CNN in order to make it deeper and increase performance when images aren’t that classifiable. We explored several architectures, such as, ResNet, Inception-v4, and AlexNet but we decided to create an architecture similar to AlexNet due to the variation and size of datasets we used we couldn’t create a model deeper or more complex than it otherwise performance would drop because we didn’t have enough data to properly train it. We were able to achieve 60\% accuracy on our dataset.
+In order to classify those images we created a CNN for it specifically and avoided using our existing CNN in order to make it deeper and increase performance when images aren’t that classifiable. We explored several architectures, such as, ResNet, Inception-v4, and AlexNet but we decided to create an architecture similar to AlexNet due to the variation and size of datasets we used we couldn’t create a model deeper or more complex than it otherwise performance would drop because we didn’t have enough data to properly train it. We were able to achieve 60% accuracy on our dataset.
 
 \section{Notation}
 

@@ -1,0 +1,22 @@
+\contentsline {chapter}{Abstract}{ii}{chapter*.1}% 
+\contentsline {chapter}{Illustrations}{iv}{chapter*.3}% 
+\protect \addvspace {\tf@singlelineskip }
+\contentsline {chapter}{\numberline {Chapter 1}Introduction}{1}{chapter.1}% 
+\contentsline {section}{The need for interpretable models in management problems}{2}{section*.4}% 
+\contentsline {section}{Contributions}{2}{section*.5}% 
+\contentsline {section}{Data}{2}{section*.6}% 
+\contentsline {chapter}{\numberline {Chapter 2}Preprocessing}{3}{chapter.2}% 
+\contentsline {section}{What is it?}{3}{section*.7}% 
+\contentsline {section}{Transformations}{4}{section*.8}% 
+\contentsline {section}{Models}{8}{section*.9}% 
+\contentsline {subsection}{CNN}{10}{section*.10}% 
+\contentsline {subsection}{LSTM}{11}{section*.11}% 
+\contentsline {section}{black box}{11}{section*.12}% 
+\contentsline {section}{white box}{12}{section*.13}% 
+\contentsline {section}{Notation}{12}{section*.14}% 
+\contentsline {section}{Layout}{12}{section*.15}% 
+\contentsline {chapter}{\numberline {Chapter 3}Problem Statement}{13}{chapter.3}% 
+\contentsline {chapter}{\numberline {Chapter 4}Related Work}{14}{chapter.4}% 
+\contentsline {chapter}{\numberline {Chapter 5}Markov Transition Fields}{15}{chapter.5}% 
+\contentsline {chapter}{\numberline {Chapter 6}Main Results}{16}{chapter.6}% 
+\contentsline {chapter}{\numberline {Chapter 7}Conclusion}{17}{chapter.7}% 
