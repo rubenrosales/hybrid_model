@@ -106,7 +106,7 @@ The raw signal has the same time intervals across the entire dataset but it may 
 
 
 [ What is raw signal and discrete, compare them, ]
-
+[explain hv, vv]
 \chapter{Preprocessing}
 We compared this method to other features extracted from Fourier-transform, Short Time Fourier transform, sliding window method, and polar coordinates taken directly from the signals amplitude/phase value. 
 
@@ -255,27 +255,33 @@ A neural network requires all data to be the same shape but because we downsampl
 
 \subsection{Resampling}
 
-We use spline interpolation in order to resize each level of decomposition into a single array.
+We use spline interpolation in order to resize each level of decomposition into a single array. We tested different sizes of interpolation from N to N/3 where N is the size of the largest discrete signal size and found no drop in performance.
+
+\subsection{Each level}
+Figure {X} depicts our model in which each level of decomposition is treated as its own dataset. We found no difference in accuracy compared to the resampling method. 
 
 
 
-
-
-
-\section{Models}
+\chapter{Models}
 [introduce models definitions]
 [EXPLAIN LOSS AND HOW ACCURACY IS MEASURED]
 
+
+\section{Definition}
 This section gives an overview of the theoretical background of concepts discussed in this work. 
 
 Machine learning algorithms can simply be seen as learning a target function (f) that maps input data (X) to an output (Y). There are several techniques to make this work but we focus on nonparametric algorithms, namely Convolutional Neural Networks (CNN) and Long Short Term Memory networks (LSTM). Nonparametric algorithms are algorithms that attempt to make minimal assumptions about the form of the function so they can learn any form from data provided to it. An example would be a neural network because it has no prior knowledge about what it’s classifying and attempts to generalize any new data points that it has not seen before.
 
 
+\subsection{CNN}
 [cnn]
 
 A Convolutional Neural Network is a type of deep neural network that can be applied to different domains such as computer vision or time series analysis. It consists of an input and output layer as well as hidden layers. A convolution is an operation between a vector of weights w against an input x. It consists of taking the dot product between m and x were in steps of a filter size defined by n.
 
 Convolutional neural networks perform feature learning via non-linear transformations implemented as a series of nested layers. The input data is a multidimensional data array, called tensor, that is presented at the visible layer. This is typically a grid-like topological structure, e.g. time-series data, which can be seen as a 1D grid taking samples at regular time intervals, pixels in images with a 2D layout, a 3D structure of videos, etc. Then a series of hidden layers extract several abstract features. Those layers are “hidden” because their values are not given. Instead, the deep learning model must determine which data representations are useful for explaining the relationships in the observed data. Each layer consists of several kernels that perform a convolution over the input; therefore, they are also referred to as convolutional layers. Kernels are feature detectors, that convolve over the input and produce a transformed version of the data at the output. Those are banks of finite impulse response filters as seen in signal processing, just learned on a hierarchy of layers. The filters are usually multidimensional arrays of parameters that are learnt by the learning algorithm [24] through a training process called backpropagation.
+
+
+\subsection{LSTM}
 
 [lstm]
 Long short-term memory (LSTM) is an artificial recurrent neural network (RNN) architecture[1] used in the field of deep learning. Unlike standard feedforward neural networks, LSTM has feedback connections. It can not only process single data points (such as images), but also entire sequences of data (such as speech or video). For example, LSTM is applicable to tasks such as unsegmented, connected handwriting recognition[2], speech recognition[3][4] and anomaly detection in network traffic or IDS's (intrusion detection systems).
@@ -286,6 +292,7 @@ A common LSTM unit is composed of a cell, an input gate, an output gate and a fo
 LSTM networks are well-suited to classifying, processing and making predictions based on time series data, since there can be lags of unknown duration between important events in a time series. LSTMs were developed to deal with the exploding and vanishing gradient problems that can be encountered when training traditional RNNs. Relative insensitivity to gap length is an advantage of LSTM over RNNs, hidden Markov models and other sequence learning methods in numerous applications.
 
 
+\subsection{multimodal}
 
 [multimodal]
 Due to the superior performance and computationally tractable representation capability (in vector spaces) in multiple domains such as visual, audio, and text, deep neural networks have gained tremendous popularity in multimodal learning tasks [38, 39, 44]. Typically, domain-specific neural networks are used on different modalities to generate their representations and the individual representations are merged or aggregated. Finally, the prediction is made on top of aggregated representation usually with another a neural network to capture the interactions between modalities and learn complex function mapping between input and output. Addition (or average) and concatenation are two common aggregation methods, i.e.,
@@ -294,19 +301,20 @@ The network structure is illustrated in Figure 1(b) . The arrows are function ma
 
 [explain architectures]
 
+\section{Architectures Used}
+
 \subsection{CNN}
 
-Our CNN has an architecture consisting of 3 convolutional layers each followed by a batch normalization and dropout layer then finally connected to two dense layers (Figure X). We found no improvements in performance when we attempted to make it deeper by adding additional convolutional layers as well as skip connections.  
-
-
-
+Our CNN architecture consists of 3 convolutional layers each followed by a batch normalization and dropout layer then finally connected to two dense layers (Figure X). We attempted to make it deeper but found inconsistent performance across all of our datasets.
+[add figure]
 \subsection{LSTM}
 We wanted to keep our LSTM network as small as possible, for X purposes, so we went with two LSTM layers of 128 hidden states and a dropout rate of 4/10  followed by a dense layer of 128 connections. We attempted different state sizes but found 128 to be the smallest number with the best consistent performance.
 
+[add figure]
 
-
+\subsection{Final method}
 We propose a multimodal learning architecture for the purpose of time series classification which is illustrated in Figure (X). The multimodal architecture allows our data to vary in size and given that all four levels of decomposition have varying length due to downsampling, we propose each model to learn the representation of each distinct feature. For this architecture we propose two models, a 1D CNN and an LSTM, in which we employ two CNN’s and 1 LSTM. They are all concatenated after their respective dense layer which performs the final   We tried numerous variations and saw no impact on performance. 
-
+[add figure]
 
 
 \section{black box}
@@ -315,7 +323,11 @@ Our model is constructed of four different architectures, 2 LSTM and 2 CNN’s, 
 \section{white box}
 Our white box is composed of a model that takes in raw data as an input and converts each signal into an image through the MTF method. We then pass those images through a CNN and those that are correctly classified are shown to the user.
 
-In order to classify those images we created a CNN for it specifically and avoided using our existing CNN in order to make it deeper and increase performance when images aren’t that classifiable. We explored several architectures, such as, ResNet, Inception-v4, and AlexNet but we decided to create an architecture similar to AlexNet due to the variation and size of datasets we used we couldn’t create a model deeper or more complex than it otherwise performance would drop because we didn’t have enough data to properly train it. We were able to achieve 60\% accuracy on our dataset.
+In order to classify those images we created a CNN for it specifically and avoided using our existing CNN in order to make it deeper and increase performance when images aren’t that classifiable. We explored several architectures, such as, ResNet, Inception-v4, and AlexNet but we decided to create an architecture similar to AlexNet due to the variation and size of datasets we used we couldn’t create a model deeper or more complex than it otherwise performance would drop because we didn’t have enough data to properly train it.
+
+
+\subsection{mtf}
+We approach our MTF is slightly different than [] because instead of performing it over all samples in the dataset we perform it for every signal. The three attributes we use are values o 
 
 \section{Notation}
 
@@ -328,27 +340,30 @@ In order to classify those images we created a CNN for it specifically and avoid
  
 
 \chapter{Markov Transition Fields}
-% We propose a framework similar to [] for encoding dynamical transition statistics,
-% but we continue their work by considering ith order Markov transition probabilities.
-% Given a time series X, we decompose its magnitude axis into two separate
-% properties by representing it as a polar coordinate, Xangular and Xradial. We then
-% identify the Q quantile bins for both properties and the temporal values Xtime
-% and assign each x ∈ Xangular, Xradial, Xtime to its corresponding bin qj (j in
-% [1, Q]). Thus we construct three QxQ adjacency transition matrices, Wangular,
-% Wradial, Wtime, by counting transitions among quantile bins in the manner of a
-% ith order Markov chain along the time axis.
+We propose a framework similar to [] for encoding dynamical transition statistics,
+but we continue their work by considering ith order Markov transition probabilities.
+Given a time series X, we decompose its magnitude axis into two separate
+properties by representing it as a polar coordinate, Xangular and Xradial. We then
+identify the Q quantile bins for both properties and the temporal values Xtime
+and assign each x in Xangular, Xradial, Xtime to its corresponding bin qj (j in
+[1, Q]). Thus we construct three QxQ adjacency transition matrices, Wangular,
+Wradial, Wtime, by counting transitions among quantile bins in the manner of a
+ith order Markov chain along the time axis.
 
-% W does not take into account the temporal axis so to prevent any information
-% loss we construct a Markov Transition Field (MTF) for each W. The MTF
-% denotes the probability of transitioning from qi to qj for each x ∈ X. This,
-% in turn, allows us to consider the transition probability on the magnitude and
-% temporal axis.
+W does not take into account the temporal axis so to prevent any information
+loss we construct a Markov Transition Field (MTF) for each W. The MTF
+denotes the probability of transitioning from qi to qj for each x in X. This,
+in turn, allows us to consider the transition probability on the magnitude and
+temporal axis.
 
-% As described in [] the MTF encodes the multi-span transition probabilities
-% of the time series, but given that we have three different M’s we modify their
-% approach and consider each M to be a separate color channel of RGB where
-% Mangular is red, Mtime is blue, Mradial is green. We perform linear interpolation
-% on each M individually to extend the probabilities to be within the range of 0 and 255.
+As described in [] the MTF encodes the multi-span transition probabilities
+of the time series, but given that we have three different M’s we modify their
+approach and consider each M to be a separate color channel of RGB where
+Mangular is red, Mtime is blue, Mradial is green. We perform linear interpolation
+on each M individually to extend the probabilities to be within the range of 0 and 255.
+
+
+\section{}
 
 \chapter{Main Results}
 

@@ -15,15 +15,24 @@
 \contentsline {subsection}{Transformation 3: Wavelets}{5}{section*.13}% 
 \contentsline {section}{Data Shape}{7}{section*.14}% 
 \contentsline {subsection}{Resampling}{7}{section*.15}% 
-\contentsline {section}{Models}{7}{section*.16}% 
-\contentsline {subsection}{CNN}{10}{section*.17}% 
-\contentsline {subsection}{LSTM}{10}{section*.18}% 
-\contentsline {section}{black box}{11}{section*.19}% 
-\contentsline {section}{white box}{11}{section*.20}% 
-\contentsline {section}{Notation}{12}{section*.21}% 
-\contentsline {section}{Layout}{12}{section*.22}% 
-\contentsline {chapter}{\numberline {Chapter 3}Problem Statement}{13}{chapter.3}% 
-\contentsline {chapter}{\numberline {Chapter 4}Related Work}{14}{chapter.4}% 
-\contentsline {chapter}{\numberline {Chapter 5}Markov Transition Fields}{15}{chapter.5}% 
-\contentsline {chapter}{\numberline {Chapter 6}Main Results}{16}{chapter.6}% 
-\contentsline {chapter}{\numberline {Chapter 7}Conclusion}{17}{chapter.7}% 
+\contentsline {subsection}{Each level}{7}{section*.16}% 
+\contentsline {chapter}{\numberline {Chapter 3}Models}{8}{chapter.3}% 
+\contentsline {section}{Definition}{8}{section*.17}% 
+\contentsline {subsection}{CNN}{8}{section*.18}% 
+\contentsline {subsection}{LSTM}{9}{section*.19}% 
+\contentsline {subsection}{multimodal}{10}{section*.20}% 
+\contentsline {section}{Architectures Used}{11}{section*.21}% 
+\contentsline {subsection}{CNN}{11}{section*.22}% 
+\contentsline {subsection}{LSTM}{11}{section*.23}% 
+\contentsline {subsection}{Final method}{11}{section*.24}% 
+\contentsline {section}{black box}{12}{section*.25}% 
+\contentsline {section}{white box}{12}{section*.26}% 
+\contentsline {subsection}{mtf}{13}{section*.27}% 
+\contentsline {section}{Notation}{13}{section*.28}% 
+\contentsline {section}{Layout}{13}{section*.29}% 
+\contentsline {chapter}{\numberline {Chapter 4}Problem Statement}{14}{chapter.4}% 
+\contentsline {chapter}{\numberline {Chapter 5}Related Work}{15}{chapter.5}% 
+\contentsline {chapter}{\numberline {Chapter 6}Markov Transition Fields}{16}{chapter.6}% 
+\contentsline {section}{}{16}{section*.30}% 
+\contentsline {chapter}{\numberline {Chapter 7}Main Results}{17}{chapter.7}% 
+\contentsline {chapter}{\numberline {Chapter 8}Conclusion}{18}{chapter.8}% 
