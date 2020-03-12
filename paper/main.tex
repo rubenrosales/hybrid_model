@@ -77,25 +77,30 @@
 \mainmatter
 
 \chapter{Introduction}
-[explain what black box and white box is]
-In this thesis, we study interpretable machine learning as applied to complex-valued time series. Scientists have studied the use of several machine learning methods such as Convolutional Neural Networks, Recurrent Neural Networks, and Support Vector Machines for time series classification. 
 
-[add more reasons] 
+
+
+
+[explain what black box and white box is]
+In this thesis, we study interpretable machine learning as applied to complex-valued time series. Scientists have studied the use of several machine learning methods such as Convolutional Neural Networks, Recurrent Neural Networks, and Support Vector Machines for time series classification.
+
+[add more reasons]
 [add how most time series are classified]
-These methods, however, fall short of allowing users to visualize patterns within their dataset and (). 
+These methods, however, fall short of allowing users to visualize patterns within their dataset and ().
 
 To address this issue, we propose an interpretable hybrid  model that can be extended to any time series dataset. Our architecture is composed of two models, an ensemble method of classifiers that functions as a black box method, and a white-box model that encodes time series as images, attemps to classify them through a CNN, and outputs all images correctly classified in both black-box and white-box method.
 
 In our black-box model, we analyze  deep learning models such as CNN’s which have become increasingly popular and widely used in the last decade but their complex nature makes it difficult for users to understand what is going on. So, as black-box models get more popular the need for an interpretable accessory? is needed so we propose a hybrid model consisting of a black box for classification and an interpretable white-box model which highlights characteristics of a time series for users to understand.
-
 
 \section{The need for interpretable models in management problems}
 The growth of mobile devices and demand for wireless data has created a need for igh quality spectrum sensing and adaptation to improve spectral allocation and interference mitigation is an important route by which we may achieve this.  however have been constrained to relatively specialized solutions which lack the generality needed to deal with a complex and growing number emitter types, interference types and propagation environments.
 This is a significant challenge in the community as expert systems designed to perform well on specialized tasks often lack flexibility and can be expensive and tedious to develop analytically.
 
 \section{Contributions}
+[fill in]
+
 \section{Data}
-Our dataset contains two different types of signals, raw and discretized. The raw signal consists of time and amplitude with 31,000 data points while discrete data can vary from 22 to 44. In industry, they do not have access to raw data because it is difficult to track that information so we focus on discrete data for this thesis.
+Our dataset contains two different types of signals, raw and discrete. The raw signal consists of time and amplitude with 31,000 data points while discrete data can vary from 22 to 44. In industry, they do not have access to raw data because it is difficult to track that information so we focus on discrete data for this thesis.
 
 The raw signal has the same time intervals across the entire dataset but it may have different start and end times. 
 
@@ -103,121 +108,128 @@ The raw signal has the same time intervals across the entire dataset but it may 
 [ What is raw signal and discrete, compare them, ]
 
 \chapter{Preprocessing}
-We compared this method to other features extracted from Fourier-transform, fast Fourier transform, sliding window method, and polar coordinates taken directly from the signals amplitude/phase value. 
+We compared this method to other features extracted from Fourier-transform, Short Time Fourier transform, sliding window method, and polar coordinates taken directly from the signals amplitude/phase value. 
 
-Using any of those methods reduced our models accuracy as well as increased training time. For fourier transform, we attempted to perform ft over the entire signal and use amplitude and time as a feature accuracy dropped below 90%. We believe this is because FT only takes into account the frequency domain and ignores time. FFT and sliding window method gave us better performance averaging around 90% accuracy. We also attempted to take the average of each window and tried different window sizes as well as window overlapping but did not see a significant improvement in loss or accuracy.
+
+[move to results]
+Using any of those methods reduced our model's accuracy as well as increased training time. For Fourier Transform, we attempted to perform FT over the entire signal and use amplitude and time as a feature accuracy dropped below 90\%. 
+
+
+We believe this is because FT only takes into account the frequency domain and ignores time. FFT and sliding window method gave us better performance averaging around 90\% accuracy. We also attempted to take the average of each window and tried different window sizes as well as window overlapping but did not see a significant improvement in loss or accuracy.
+[move to results]
 
 We normalize all data using L2 norm and format our data by each subsequent wavelet decomposition. For instance, if we do N levels of decomposition the Nth item would be at the end of the array.
-
-
 
 \section{What is it?}
 [what is feature extraction]
 
-Data pre-processing is concerned with the analysis and manipulation of the collected spectrum data with the aim to arrive at potentially good wireless data representations. The raw samples organized into data vectors rk in the previous block are pipelined as input for signal processing (SP) tools that analyze, process and transform the
-data to arrive at simple data representations such as frequency,
-amplitude, phase and spectrum, or more complex features
-xk such as e.g. cyclostationary features. In addition, feature
-learning such as deep learning may be utilized to automatically
-extract more low-level and high-level features. In many ML
-applications the choice of features is just as important, if not
-more important than the choice of the ML algorithm.
+
+Radio signal data is presented in a complex-value format which is unusable in a standard neural network so in an attempt to make our model robust and reduce any complexity we focused on using real values as features.
+
+
+% maybe?
+% Data pre-processing is concerned with the analysis and manipulation of the collected spectrum data to arrive at potentially good wireless data representations. The raw samples organized into data vectors rk in the previous block are pipelined as input for signal processing (SP) tools that analyze, process and transform the data to arrive at simple data representations such as frequency,
+% amplitude, phase and spectrum, or more complex features
+% xk such as e.g. cyclostationary features. In addition, feature
+% learning such as deep learning may be utilized to automatically
+% extract more low-level and high-level features. In many ML
+% applications the choice of features is just as important, if not
+% more important than the choice of the ML algorithm.
 
 
 
 \section{Transformations}
+
+
+\subsection{Transformation 1 STFT/ FT}
+% [Recall we can write a complex number in terms of its magnitude and phase
+% (i.e., its polar representation). ]
+
 Transformation 1 : STFT/ FT
 [what is it]
 
 [fft formula]
-The Fourier Transform takes a time-based pattern, measures every possible cycle, and returns the overall "cycle recipe" (the amplitude, offset, and rotation speed for every cycle that was found).
+The Fourier Transform (FT) is a mathematical tool that decomposes any function into a sum of sinusoidal basis functions. Each basis function is a complex value of a frequency so it allows us to view our  data in frequency domain as opposed to amplitude.
 
-We will begin the analysis of the Fourier Transform on this page. This section gives an introduction to the Fourier Transform and then we take a look at the fundamental properties of the Fourier Transform.
-
-The Fourier Transform is a magical mathematical tool. The Fourier Transform decomposes any function into a sum of sinusoidal basis functions. Each of these basis functions is a complex exponential of a different frequency. The Fourier Transform therefore gives us a unique way of viewing any function - as the sum of simple sinusoids.
-
-The Fourier Series showed us how to rewrite any periodic function into a sum of sinusoids. The Fourier Transform is the extension of this idea to non-periodic functions.
-
-While the the Fourier Transform is a beautiful mathematical tool, its widespread popularity is due to its practical application in virtually every field of science and engineering. It's hard to understand why the Fourier Transform is so important. But I can assure you it enables the solution to difficult problems be made simpler (and also makes previously unsolved problems solvable). In addition, the Fourier Transform gives us a new method of viewing the world, which is fantastic for giving a more intuitive feel for our universe.
+One of the shortcomings of the FT is rooted in the Heisenberg Uncertainty Principle (HUP) [quote?]. The HUP states that the position and velocity of an object cannot be simulteanously measured which can be applied to the time frequency information of a signal. This means we cannot know which spectral components exist at any given time. The closest we can get is sampling at different ranges of time and finding a range of frequencies within that time frame. This method is described as the Short Time Fourier Transform.
 
 
+% The Fourier Transform is a magical mathematical tool. The Fourier Transform decomposes any function into a sum of sinusoidal basis functions. Each of these basis functions is a complex exponential of a different frequency. The Fourier Transform, therefore gives us a unique way of viewing any function - as the sum of simple sinusoids.
+
+% The Fourier Series showed us how to rewrite any periodic function into a sum of sinusoids. The Fourier Transform is the extension of this idea to non-periodic functions.
+
+% While the Fourier Transform is a beautiful mathematical tool, its widespread popularity is due to its practical application in virtually every field of science and engineering. It's hard to understand why the Fourier Transform is so important. But I can assure you it enables the solution to difficult problems be made simpler (and also makes previously unsolved problems solvable). In addition, the Fourier Transform gives us a new method of viewing the world, which is fantastic for giving a more intuitive feel for our universe.
+
+
+\subsection{Shortcoming stft}
 [stft]
-The Short-time Fourier transform (STFT), is a Fourier-related transform used to determine the sinusoidal frequency and phase content of local sections of a signal as it changes over time.[1] In practice, the procedure for computing STFTs is to divide a longer time signal into shorter segments of equal length and then compute the Fourier transform separately on each shorter segment. This reveals the Fourier spectrum on each shorter segment. One then usually plots the changing spectra as a function of time, known as a spectrogram or waterfall plot.
-
-
-
+The Short-Time Fourier transform (STFT), is a Fourier related transform used to determine the sinusoidal frequency and phase content of local sections of a signal as it changes over time.[Ref] 
+Computing STF requires the signal to be divided into segments of equal length and then have the FT applied to that segment. This allows us to view the the fourier spectrum at a more granular level which could potentially reveal different patterns amongst signals of different classes.
 
 [why it performed poorly]
-The problem with STFT is the fact whose roots go back to what is known as the Heisenberg
-Uncertainty Principle. This principle originally applied to the momentum and location of
-moving particles, can be applied to time-frequency information of a signal. Simply, this principle
-states that one cannot know the exact time-frequency representation of a signal, i.e., one cannot
-know what spectral components exist at what instances of times. What one can know are the
-time intervals in which certain bands of frequencies exist, which is a resolution problem.
-
-
-The problem with the STFT has something to do with the width of the window function that is
-used. To be technically correct, this width of the window function is known as the support of
-the window. If the window function is narrow, then it is known as compactly supported. This
-terminology is more often used in the wavelet world, as we will see later.
-
-The problem is that when you are studying a real signal it would be useful to know what the ‘instantaneous frequency’ of the signal is. The instantaneous frequency is the exact frequency of a signal at an exact moment in time. For instance if I was listening to a music track I would like to be able to say ‘at 1 min 59.0423 seconds into the music track the sound is 1563.2 Hz’. Unfortunately the Fourier Transform cannot do this because there exists a minimum amount of uncertainty between the frequency and time domains, like Heisenberg has a minimum amount of uncertainty between the speed and position of a particle (the area of the box). You can know the moment in time you want to find the frequency for (like the blue box), but because there is a minimum uncertainty, the box of has to stretch out across frequency, meaning that you are unsure of the frequency at that moment in time.
-
-The best you can do with a Fourier Transform is to sample a range of time (for instance, the time signal between 1 min 58 sec and 1 min 59 sec in a song) and find a range of frequencies that were played over that amount of time, as represented by the black box. An example of this can be seen by looking at the third picture in the post again. There is a signal over a range of time (e.g. someone saying ‘hello’) and the frequency graph is the range of frequencies recorded over that time.
+One of the issues with this method is we can create very narrow window sizes which gives us a better understanding of the data with respect to time but we lose understanding of the frequency domain. Additionally, selecting an appropriate window size for segementing the signal can be an arduous that would require fine-tuning as well as well as increasing the dimensionality of our dataset.
 
 
 
+% The problem with STFT is the fact whose roots go back to what is known as the Heisenberg
+% Uncertainty Principle. This principle originally applied to the momentum and location of
+% moving particles, can be applied to time-frequency information of a signal. Simply, this principle
+% states that one cannot know the exact time-frequency representation of a signal, i.e., one cannot
+% know what spectral components exist at what instances of times. What one can know are the
+% time intervals in which certain bands of frequencies exist, which is a resolution problem.
+% The problem with the STFT has something to do with the width of the window function that is
+% used. To be technically correct, this width of the window function is known as the support of
+% the window. If the window function is narrow, then it is known as compactly supported. This
+% terminology is more often used in the wavelet world, as we will see later.
 
-Transformation 2: Abs/angle
-The representation of a complex number as a sum of a real and imaginary number, z = x + iy, is called its Cartesian representation.
-We attempt to use the real value of the absolute cartesian representation so we have two features, angle and absolute value, 
+% The problem is that when you are studying a real signal it would be useful to know what the ‘instantaneous frequency’ of the signal is. The instantaneous frequency is the exact frequency of a signal at an exact moment in time. For instance if I was listening to a music track I would like to be able to say ‘at 1 min 59.0423 seconds into the music track the so,und is 1563.2 Hz’. Unfortunately the Fourier Transform cannot do this because there exists a minimum amount of uncertainty between the frequency and time domains, like Heisenberg has a minimum amount of uncertainty between the speed and position of a particle (the area of the box). You can know the moment in time you want to find the frequency for (like the blue box), but because there is a minimum uncertainty, the box of has to stretch out across frequency, meaning that you are unsure of the frequency at that moment in time.
+
+% The best you can do with a Fourier Transform is to sample a range of time (for instance, the time signal between 1 min 58 sec and 1 min 59 sec in a song) and find a range of frequencies that were played over that amount of time, as represented by the black box. An example of this can be seen by looking at the third picture in the post again. There is a signal over a range of time (e.g. someone saying ‘hello’) and the frequency graph is the range of frequencies recorded over that time.
+
+
+\subsection{Transformation 2: Abs/angle}
+
+Transformation 2: Amplitude / Phase
+The representation of a complex number as a sum of a real and imaginary number, z = x + iy, is called its Cartesian representation. For every cartesian point, we calculate its radius and angular distance which are real values and use those as features.
 
 [purpose and motivation? Behind making it ang/abs]
 
 [definition plus method]
 
-To overcome this resolution problem a Wavelet Transform is used to deconstruct the signal into a load of wavelets being added together. Wavelets are useful because they are limited in time and frequency.  Instead of a wavelet lasting forever and having no limit in time, it dies quickly, like the example of different wavelets below shows:
-
-These waves are limited in time, whereas sin() and cos() are not because they continue forever. When a signal is deconstructed into wavelets rather than sin() and cos() it is called a Wavelet Transform. The graph that can be analysed after the transform is in the wavelet domain, rather than the frequency domain.
-This time limiting quality about wavelets is useful to Engineers as it provides more resolution in the time domain. Instead of modelling with an infinite wave, it is possible to model with a finite wave which you can ‘slide’ along to time domain. The ability to slide the signal is what gives Engineers a more accurate representation of the signal and therefore a better resolution in time.
 
 
+\subsection{Transformation 2: Sliding window }
 
 Transformation 2: Sliding window 
 We propose a method similar to STFT but in an effort to reduce the size of the data we take the mean at each window which would turn our size into size N where N is equal to the number of windows we use.
 
-
-
+\subsection{Transformation 3: Wavelets}
 Transformation 3: Wavelets
-% The main advantages of wavelets is that they have a varying window size, being wide for slow frequencies and narrow for the fast ones, thus leading to an optimal time–frequency resolution in all the frequency ranges. Furthermore, owing to the fact that windows are adapted to the transients of each scale, wavelets lack the requirement of stationary [14], [15]. The use of wavelets for PQ studies is most appropriate because most disturbances on a power supply system are non-stationary transients [10], [16]. It can be defined as follows:
-% (1)
-% where i and j are integers, the functions i,j(x) are the wavelet expansion functions and the two-parameter expansion coefficients ai,j are called the discrete wavelet transform (DWT) coefficients of f(x). The coefficients are given by
-% (2)
-% The wavelet basis functions can be computed from a function i,j(x) called the generating or mother wavelet through translation and scaling (dilation) parameters
 
-% parameter. Mother wavelet function is not unique, but it must satisfy a small set of conditions. One of them is multiresolution condition and related to the two-scale difference equation
+Wavelets are similar to the FT in which they deconstruct a signal using representations of other signals. The key difference is wavelet signals are finite in time and frequency as opposed to sin and cos signals which can carry on forever. Simply, this allows us to extract information from a signal which respect to time and location.
+
+The use of wavelets is called the wavelet transform which is a technique in wich a signal is analyzed using different versions of a dilated and translated basis functionss called the mother wavelet. There are two types of wavelet transformations, discrete and continous. In this thesis we focus on discrete.
+
+DWT uses a discrete set of wavelet scales and translations which decompose the signal into mutually orthogional set of wavelets.
+
+One advantage of wavelets is they have varying window sizes so they can be wide for slow frequencies and narrow for faster ones this is handled by the property called scale [add figure].
+
+wavelets 
 
 
-% (4)
-% where (x) is scaling function and h(k) must satisfy several conditions to make basis wavelet functions unique, orthonormal and have a certain degree of regularity. The mother wavelet is related to the scaling function as follows:
-% (5)
-% % where g(k) = (−1) kh(1 − k). At this point, if valid h(x) is available, one can obtain g(x). Note that h and g can be viewed as filter coefficients of half band low-pass and high-pass filters, respectively. J-level wavelet decomposition can be computed with 6 as follows:
+Some properties of wavelets are orthoganility, zero mean, and are efficient at representing localized data and functions.
 
-% (6)
-% where coefficient a0,k and coefficients aj+1,n and dj+1,n at scale j + 1 are given and they can be obtained if coefficient at scale j is available
-% (7)
-% where a set of wavelet approximation coefficients, aj+1,n, and detailed coefficients dj+1,n at scale j + 1 are given.
 
 
 Db4 wavelet http://wavelets.pybytes.com/wavelet/db4/
 
 Model 1:
+
+
 Model 2: 
-Model 3: 
+Model 3: `'
 
 
-
-[Shape of data comparison]
 
 In the preprocessing stage we tried numerous combinations of features but found the best performing features to come from wavelet decomposition.
 
@@ -226,7 +238,7 @@ In the preprocessing stage we tried numerous combinations of features but found 
 
 Wavelets
 
-We implement the discrete wavelet transform as a filter-bank which means it’s composed of cascading high-pass and low-pass filters. This gives us the advantage of splitting a signal into several frequency sub-bands. Wavelet decompositions give us the advantage of gaining features that take into account frequency and time domains. 
+We take advantage of wavelets by applying discrete wavelet transforms as a filter-bank which means it’s composed of cascading high-pass and low-pass filters. This gives us the advantage of splitting a signal into several frequency sub-bands. Wavelet decompositions give us the advantage of gaining features that take into account frequency and time domains. 
 
 [explain why they performed better]
 
@@ -235,10 +247,24 @@ We implement the discrete wavelet transform as a filter-bank which means it’s 
 
 
 
+\section{Data Shape}
+[Shape of data comparison]
+
+A neural network requires all data to be the same shape but because we downsample in wavelet decomposition, each data size is halved until making it impossible to place all levels of decomposition into the same dataset. In order to circumvent this we tried two different methods, resampling the data, and treating each level of decomposition as its own dataset.
+
+
+\subsection{Resampling}
+
+We use spline interpolation in order to resize each level of decomposition into a single array.
+
+
+
+
 
 
 \section{Models}
 [introduce models definitions]
+[EXPLAIN LOSS AND HOW ACCURACY IS MEASURED]
 
 This section gives an overview of the theoretical background of concepts discussed in this work. 
 
