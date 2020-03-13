@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  11 MAR 2020 20:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  13 MAR 2020 01:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -530,61 +530,52 @@ Chapter 1.
 [1
 
 
-] [2]
+] [2] [3]
 Chapter 2.
-[3
+[4
 
-] [4] [5] [6] [7]
+] [5] [6] [7]
 Chapter 3.
-
-Overfull \hbox (7.61583pt too wide) in paragraph at lines 266--268
-[]\OT1/ptm/m/n/12 [introduce mod-els def-i-ni-tions] [EX-PLAIN LOSS AND HOW AC-CU-RACY IS MEA-
- []
-
 [8
 
-] [9] [10] [11] [12] [13]
+] [9] [10] [11] [12]
 Chapter 4.
-[14
+[13
 
 ]
 Chapter 5.
-[15
+[14
 
 ]
 Chapter 6.
-[16
+[15
 
-]
+] [16]
 Chapter 7.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 385.
 [17
 
 ]
-Chapter 8.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 377.
-[18
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 377.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 385.
  (/Users/rubenrosales/Documents/research/thesis/paper/main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 377.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 377.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 385.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 385.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B40CC6B93F363D0F61CAC9E4CD4B378B;480.
+(rerunfilecheck)             Checksum: 8E83FE484B14F0AE35A459E82E5EA253;427.
  ) 
 Here is how much of TeX's memory you used:
- 9383 strings out of 492616
- 140986 string characters out of 6129482
+ 9379 strings out of 492616
+ 140948 string characters out of 6129482
  242276 words of memory out of 5000000
- 13121 multiletter control sequences out of 15000+600000
+ 13120 multiletter control sequences out of 15000+600000
  7678 words of font info for 20 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,5n,40p,1350b,324s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,5n,40p,965b,324s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2019/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on /Users/rubenrosales/Documents/research/thesis/paper/main.pdf (22 pages, 59027 bytes).
+Output written on /Users/rubenrosales/Documents/research/thesis/paper/main.pdf (21 pages, 56834 bytes).
 PDF statistics:
- 203 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
- 61 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 192 PDF objects out of 1000 (max. 8388607)
+ 165 compressed objects within 2 object streams
+ 58 named destinations out of 1000 (max. 500000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 

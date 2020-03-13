@@ -41,7 +41,7 @@
 
 \begin{center}
    
-   \textbf{hybrid model}
+   \textbf{Hybrid Model for Interpretable Time Series Analysis}
    
    \vspace*{\baselineskip} 
       
@@ -78,12 +78,9 @@
 
 \chapter{Introduction}
 
-
-
-
 [explain what black box and white box is]
 In this thesis, we study interpretable machine learning as applied to complex-valued time series. Scientists have studied the use of several machine learning methods such as Convolutional Neural Networks, Recurrent Neural Networks, and Support Vector Machines for time series classification.
-
+ 
 [add more reasons]
 [add how most time series are classified]
 These methods, however, fall short of allowing users to visualize patterns within their dataset and ().
@@ -100,58 +97,46 @@ This is a significant challenge in the community as expert systems designed to p
 [fill in]
 
 \section{Data}
-Our dataset contains two different types of signals, raw and discrete. The raw signal consists of time and amplitude with 31,000 data points while discrete data can vary from 22 to 44. In industry, they do not have access to raw data because it is difficult to track that information so we focus on discrete data for this thesis.
 
-The raw signal has the same time intervals across the entire dataset but it may have different start and end times. 
+We analyzed our model on three radio signal datasets generated using Spatial Modulation. Spatial Modulation is a transmission technique that uses multiple antennas. It maps a block of information bits to two units, one is a symbol chosen from a constellation diagram, and the second one is a unique transmit antenna number that is chosen from a set of transmit antennas. The method in which transmit antennas send and receive radio waves can be described through polarization. Two popular basis polarizations are horizontal linear, H, and vertical linear, V. Our datasets contain data horizontally transmitted and vertically received (HV) and data vertically transmitted and vertically received.
 
+The two properties HV and VV, are given to us in raw discrete format. Both properties are consist of time and amplitude values but vary in length and in how they are processed. The raw signal consists of over 31,000 data points with the exact time it was received. The size of the discrete data can vary from 22 to 44 data points, and is a processed representation of the raw signal that has equally spaced values.
 
 [ What is raw signal and discrete, compare them, ]
 [explain hv, vv]
 \chapter{Preprocessing}
-We compared this method to other features extracted from Fourier-transform, Short Time Fourier transform, sliding window method, and polar coordinates taken directly from the signals amplitude/phase value. 
+Radio signal data is presented in a complex-valued format that is unusable in a typical neural network, so in an attempt to make our model robust and reduce any complexity, we focused on using real values as features.
 
+We tried numerous methods to extract real-valued features, including Fourier Transform, Short Time Fourier Transform, a custom sliding window method, and polar coordinates taken directly from the signals amplitude/phase value. Before applying any of these methods, we normalized all data using L2 normalization.
 
-[move to results]
-Using any of those methods reduced our model's accuracy as well as increased training time. For Fourier Transform, we attempted to perform FT over the entire signal and use amplitude and time as a feature accuracy dropped below 90\%. 
+% \section{What is it?}
+% [what is feature extraction]
 
-
-We believe this is because FT only takes into account the frequency domain and ignores time. FFT and sliding window method gave us better performance averaging around 90\% accuracy. We also attempted to take the average of each window and tried different window sizes as well as window overlapping but did not see a significant improvement in loss or accuracy.
-[move to results]
-
-We normalize all data using L2 norm and format our data by each subsequent wavelet decomposition. For instance, if we do N levels of decomposition the Nth item would be at the end of the array.
-
-\section{What is it?}
-[what is feature extraction]
-
-
-Radio signal data is presented in a complex-value format which is unusable in a standard neural network so in an attempt to make our model robust and reduce any complexity we focused on using real values as features.
-
-
-% maybe?
-% Data pre-processing is concerned with the analysis and manipulation of the collected spectrum data to arrive at potentially good wireless data representations. The raw samples organized into data vectors rk in the previous block are pipelined as input for signal processing (SP) tools that analyze, process and transform the data to arrive at simple data representations such as frequency,
-% amplitude, phase and spectrum, or more complex features
-% xk such as e.g. cyclostationary features. In addition, feature
-% learning such as deep learning may be utilized to automatically
-% extract more low-level and high-level features. In many ML
-% applications the choice of features is just as important, if not
-% more important than the choice of the ML algorithm.
+% % maybe?
+% % Data pre-processing is concerned with the analysis and manipulation of the collected spectrum data to arrive at potentially good wireless data representations. The raw samples organized into data vectors rk in the previous block are pipelined as input for signal processing (SP) tools that analyze, process and transform the data to arrive at simple data representations such as frequency,
+% % amplitude, phase and spectrum, or more complex features
+% % xk such as e.g. cyclostationary features. In addition, feature
+% % learning such as deep learning may be utilized to automatically
+% % extract more low-level and high-level features. In many ML
+% % applications the choice of features is just as important, if not
+% % more important than the choice of the ML algorithm.
 
 
 
 \section{Transformations}
 
 
-\subsection{Transformation 1 STFT/ FT}
+\subsection{STFT/ FT}
 % [Recall we can write a complex number in terms of its magnitude and phase
 % (i.e., its polar representation). ]
 
-Transformation 1 : STFT/ FT
+% Transformation 1 : STFT/ FT
 [what is it]
 
 [fft formula]
-The Fourier Transform (FT) is a mathematical tool that decomposes any function into a sum of sinusoidal basis functions. Each basis function is a complex value of a frequency so it allows us to view our  data in frequency domain as opposed to amplitude.
+The Fourier Transform (FT) is a mathematical tool that decomposes any function into a sum of sinusoidal basis functions. Each basis function is a complex value of a frequency, so it allows us to view our data in the frequency domain as opposed to amplitude.
 
-One of the shortcomings of the FT is rooted in the Heisenberg Uncertainty Principle (HUP) [quote?]. The HUP states that the position and velocity of an object cannot be simulteanously measured which can be applied to the time frequency information of a signal. This means we cannot know which spectral components exist at any given time. The closest we can get is sampling at different ranges of time and finding a range of frequencies within that time frame. This method is described as the Short Time Fourier Transform.
+One of the shortcomings of the FT is rooted in the Heisenberg Uncertainty Principle (HUP) [quote?]. The HUP states that the position and velocity of an object cannot be simultaneously measured, which can be applied to the time-frequency information of a signal. This means we cannot know which spectral components exist at any given time. The closest we can get is sampling at different ranges of time and finding a range of frequencies within that time frame. This method is described as the Short-Time Fourier Transform.
 
 
 % The Fourier Transform is a magical mathematical tool. The Fourier Transform decomposes any function into a sum of sinusoidal basis functions. Each of these basis functions is a complex exponential of a different frequency. The Fourier Transform, therefore gives us a unique way of viewing any function - as the sum of simple sinusoids.
@@ -163,13 +148,10 @@ One of the shortcomings of the FT is rooted in the Heisenberg Uncertainty Princi
 
 \subsection{Shortcoming stft}
 [stft]
-The Short-Time Fourier transform (STFT), is a Fourier related transform used to determine the sinusoidal frequency and phase content of local sections of a signal as it changes over time.[Ref] 
-Computing STF requires the signal to be divided into segments of equal length and then have the FT applied to that segment. This allows us to view the the fourier spectrum at a more granular level which could potentially reveal different patterns amongst signals of different classes.
+The Short-Time Fourier transform (STFT) is a Fourier related transform used to determine the sinusoidal frequency and phase content of local sections of a signal as it changes over time.[Ref] 
+Computing STF requires the signal to be divided into segments of equal length and then have the FT applied to that segment. This allows us to view the Fourier spectrum at a more granular level, which could potentially reveal different patterns amongst signals of different classes.
 
-[why it performed poorly]
-One of the issues with this method is we can create very narrow window sizes which gives us a better understanding of the data with respect to time but we lose understanding of the frequency domain. Additionally, selecting an appropriate window size for segementing the signal can be an arduous that would require fine-tuning as well as well as increasing the dimensionality of our dataset.
-
-
+One of the issues with this method is that we can create very narrow window sizes, which gives us a better understanding of the data with respect to time, but we lose understanding of the frequency domain. Additionally, selecting an appropriate window size for segmenting the signal can be an arduous task that would require fine-tuning as well as increasing the dimensionality of our dataset.
 
 % The problem with STFT is the fact whose roots go back to what is known as the Heisenberg
 % Uncertainty Principle. This principle originally applied to the momentum and location of
@@ -187,7 +169,7 @@ One of the issues with this method is we can create very narrow window sizes whi
 % The best you can do with a Fourier Transform is to sample a range of time (for instance, the time signal between 1 min 58 sec and 1 min 59 sec in a song) and find a range of frequencies that were played over that amount of time, as represented by the black box. An example of this can be seen by looking at the third picture in the post again. There is a signal over a range of time (e.g. someone saying ‘hello’) and the frequency graph is the range of frequencies recorded over that time.
 
 
-\subsection{Transformation 2: Abs/angle}
+\subsection{Polar Coordinates}
 
 Transformation 2: Amplitude / Phase
 The representation of a complex number as a sum of a real and imaginary number, z = x + iy, is called its Cartesian representation. For every cartesian point, we calculate its radius and angular distance which are real values and use those as features.
@@ -201,89 +183,91 @@ The representation of a complex number as a sum of a real and imaginary number, 
 \subsection{Transformation 2: Sliding window }
 
 Transformation 2: Sliding window 
-We propose a method similar to STFT but in an effort to reduce the size of the data we take the mean at each window which would turn our size into size N where N is equal to the number of windows we use.
+We propose a method similar to STFT but to reduce the size of the data we take the mean at each window which would turn our size into size N where N is equal to the number of windows we use.
 
-\subsection{Transformation 3: Wavelets}
-Transformation 3: Wavelets
-
-Wavelets are similar to the FT in which they deconstruct a signal using representations of other signals. The key difference is wavelet signals are finite in time and frequency as opposed to sin and cos signals which can carry on forever. Simply, this allows us to extract information from a signal which respect to time and location.
-
-The use of wavelets is called the wavelet transform which is a technique in wich a signal is analyzed using different versions of a dilated and translated basis functionss called the mother wavelet. There are two types of wavelet transformations, discrete and continous. In this thesis we focus on discrete.
-
-DWT uses a discrete set of wavelet scales and translations which decompose the signal into mutually orthogional set of wavelets.
-
-One advantage of wavelets is they have varying window sizes so they can be wide for slow frequencies and narrow for faster ones this is handled by the property called scale [add figure].
-
-wavelets 
+\subsection{Wavelets}
 
 
-Some properties of wavelets are orthoganility, zero mean, and are efficient at representing localized data and functions.
+Wavelets are similar to the FT in which they deconstruct a signal using representations of other signals. The key difference is that wavelet signals are finite in time and frequency as opposed to sin and cos signals, which can carry on forever. This allows us to extract information from a signal with respect to time and location.
+
+The use of wavelets is called the wavelet transform, which is a technique in which a signal is analyzed using different versions of a dilated and translated basis functions called the mother wavelet. There are two types of wavelet transformations, discrete and continuous. In this thesis, we focus on discrete. Discrete Wavelet Transform uses a discrete set of wavelet scales and translations which decompose the signal into a mutually orthogonal set of wavelets. 
+
+We take advantage of wavelets by applying discrete wavelet transforms as a filter-bank, which means it is composed of cascading high-pass and low-pass filters. This gives us the advantage of splitting a signal into several frequency sub-bands. Wavelet decompositions give us the advantage of gaining features that take into account frequency and time domains. 
+
+% Transformation 3: Wavelets
+
+% Wavelets are similar to the FT in which they deconstruct a signal using representations of other signals. The key difference is wavelet signals are finite in time and frequency as opposed to sin and cos signals which can carry on forever. Simply, this allows us to extract information from a signal which respect to time and location.
+
+% The use of wavelets is called the wavelet transform which is a technique in which a signal is analyzed using different versions of a dilated and translated basis functionss called the mother wavelet. There are two types of wavelet transformations, discrete and continous. In this thesis we focus on discrete.
+
+% DWT uses a discrete set of wavelet scales and translations which decompose the signal into mutually orthogional set of wavelets.
+
+% One advantage of wavelets is they have varying window sizes so they can be wide for slow frequencies and narrow for faster ones this is handled by the property called scale [add figure].
+
+% wavelets 
 
 
-
-Db4 wavelet http://wavelets.pybytes.com/wavelet/db4/
-
-Model 1:
-
-
-Model 2: 
-Model 3: `'
+% Some properties of wavelets are orthogonality, zero mean, and are efficient at representing localized data and functions.
 
 
 
-In the preprocessing stage we tried numerous combinations of features but found the best performing features to come from wavelet decomposition.
+% Db4 wavelet http://wavelets.pybytes.com/wavelet/db4/
+
+% Model 1:
+% Model 2: 
+% Model 3: 
+
+
+
+% In the preprocessing stage we tried numerous combinations of features but found the best performing features to come from wavelet decomposition.
 
 
 
 
-Wavelets
+% Wavelets
 
-We take advantage of wavelets by applying discrete wavelet transforms as a filter-bank which means it’s composed of cascading high-pass and low-pass filters. This gives us the advantage of splitting a signal into several frequency sub-bands. Wavelet decompositions give us the advantage of gaining features that take into account frequency and time domains. 
+% We take advantage of wavelets by applying discrete wavelet transforms as a filter-bank which means it’s composed of cascading high-pass and low-pass filters. This gives us the advantage of splitting a signal into several frequency sub-bands. Wavelet decompositions give us the advantage of gaining features that take into account frequency and time domains. 
 
-[explain why they performed better]
+% [explain why they performed better]
 
 
-[alternatives]
-
+% [alternatives]
 
 
 \section{Data Shape}
-[Shape of data comparison]
+% [Shape of data comparison]
 
-A neural network requires all data to be the same shape but because we downsample in wavelet decomposition, each data size is halved until making it impossible to place all levels of decomposition into the same dataset. In order to circumvent this we tried two different methods, resampling the data, and treating each level of decomposition as its own dataset.
+A neural network requires all data to be the same shape. However, because we downsample in wavelet decomposition, each data size is halved until making it impossible to place all levels of decomposition into the same dataset. In order to circumvent this, we tried two different methods, resampling the data and treating each level of decomposition as its own dataset.
 
 
 \subsection{Resampling}
 
-We use spline interpolation in order to resize each level of decomposition into a single array. We tested different sizes of interpolation from N to N/3 where N is the size of the largest discrete signal size and found no drop in performance.
+We use spline interpolation in order to resize each level of decomposition into a single array. We tested different sizes of interpolation from N to N/3, where N is the size of the largest discrete signal size and found no reduction in performance.
 
 \subsection{Each level}
 Figure {X} depicts our model in which each level of decomposition is treated as its own dataset. We found no difference in accuracy compared to the resampling method. 
 
-
-
 \chapter{Models}
-[introduce models definitions]
-[EXPLAIN LOSS AND HOW ACCURACY IS MEASURED]
+% [introduce models definitions]
+% [EXPLAIN LOSS AND HOW ACCURACY IS MEASURED]
 
 
 \section{Definition}
-This section gives an overview of the theoretical background of concepts discussed in this work. 
-
-Machine learning algorithms can simply be seen as learning a target function (f) that maps input data (X) to an output (Y). There are several techniques to make this work but we focus on nonparametric algorithms, namely Convolutional Neural Networks (CNN) and Long Short Term Memory networks (LSTM). Nonparametric algorithms are algorithms that attempt to make minimal assumptions about the form of the function so they can learn any form from data provided to it. An example would be a neural network because it has no prior knowledge about what it’s classifying and attempts to generalize any new data points that it has not seen before.
-
+Machine learning algorithms can be seen as learning a target function (f) that maps input data (X) to an output (Y). There are several techniques to make this work, but we focus on nonparametric algorithms, namely Convolutional Neural Networks (CNN) and Long Short Term Memory networks (LSTM). Nonparametric algorithms are algorithms that attempt to make minimal assumptions about the form of the function so they can learn any form from data provided to it. An example would be a neural network because it has no prior knowledge about what it is classifying and attempts to generalize any new data points that it has not seen before.
 
 \subsection{CNN}
-[cnn]
+% [cnn]
 
 A Convolutional Neural Network is a type of deep neural network that can be applied to different domains such as computer vision or time series analysis. It consists of an input and output layer as well as hidden layers. A convolution is an operation between a vector of weights w against an input x. It consists of taking the dot product between m and x were in steps of a filter size defined by n.
 
-Convolutional neural networks perform feature learning via non-linear transformations implemented as a series of nested layers. The input data is a multidimensional data array, called tensor, that is presented at the visible layer. This is typically a grid-like topological structure, e.g. time-series data, which can be seen as a 1D grid taking samples at regular time intervals, pixels in images with a 2D layout, a 3D structure of videos, etc. Then a series of hidden layers extract several abstract features. Those layers are “hidden” because their values are not given. Instead, the deep learning model must determine which data representations are useful for explaining the relationships in the observed data. Each layer consists of several kernels that perform a convolution over the input; therefore, they are also referred to as convolutional layers. Kernels are feature detectors, that convolve over the input and produce a transformed version of the data at the output. Those are banks of finite impulse response filters as seen in signal processing, just learned on a hierarchy of layers. The filters are usually multidimensional arrays of parameters that are learnt by the learning algorithm [24] through a training process called backpropagation.
+Convolutional neural networks perform feature learning via non-linear transformations implemented as a series of layers. The input data is a multidimensional array, called a tensor. The input data is passed through an input layer, followed by a series of hidden layers to extract features, and finally, an output layer, which in the case of classification, gives a probability for each class. 
 
+
+Hidden layers are crucial to neural networks because it is how a model can determine which data representations are useful for explaining the relationships in the given data. Each layer consists of several kernels that perform a convolution over the input; therefore, they referred to as convolutional layers. Kernels are feature detectors that convolve over the input and produce a transformed version of the data at the output. 
 
 \subsection{LSTM}
 
-[lstm]
+% [lstm]
 Long short-term memory (LSTM) is an artificial recurrent neural network (RNN) architecture[1] used in the field of deep learning. Unlike standard feedforward neural networks, LSTM has feedback connections. It can not only process single data points (such as images), but also entire sequences of data (such as speech or video). For example, LSTM is applicable to tasks such as unsegmented, connected handwriting recognition[2], speech recognition[3][4] and anomaly detection in network traffic or IDS's (intrusion detection systems).
 
 A common LSTM unit is composed of a cell, an input gate, an output gate and a forget gate. The cell remembers values over arbitrary time intervals and the three gates regulate the flow of information into and out of the cell.
@@ -317,23 +301,21 @@ We propose a multimodal learning architecture for the purpose of time series cla
 [add figure]
 
 
-\section{black box}
-Our model is constructed of four different architectures, 2 LSTM and 2 CNN’s, that are concatenated at the dense layer. The four features we use are amplitude and phase of each level of decomposition for HV and VV. We chose four because we wanted to take into consideration both HV / VV in the event that one had more descriptive features than the other. Wavelet decomposition produces a complex value but that is unusable in a standard neural network due to loss of information unless we move to a complex LSTM but as stated in {} there isn’t a significant increase in accuracy. 
 
-\section{white box}
-Our white box is composed of a model that takes in raw data as an input and converts each signal into an image through the MTF method. We then pass those images through a CNN and those that are correctly classified are shown to the user.
+\section{mtf}
 
-In order to classify those images we created a CNN for it specifically and avoided using our existing CNN in order to make it deeper and increase performance when images aren’t that classifiable. We explored several architectures, such as, ResNet, Inception-v4, and AlexNet but we decided to create an architecture similar to AlexNet due to the variation and size of datasets we used we couldn’t create a model deeper or more complex than it otherwise performance would drop because we didn’t have enough data to properly train it.
+We approach our MTF is slightly different than  because instead of performing it over all samples in the dataset we perform it for every signal. 
+
+The three attributes we use are values are the absolute value of HV SBR, the absolute value of VV SBR, and a mathematical combination of the two (Figure X).
 
 
-\subsection{mtf}
-We approach our MTF is slightly different than [] because instead of performing it over all samples in the dataset we perform it for every signal. The three attributes we use are values o 
+
+[add figure]
 
 \section{Notation}
 
 \section{Layout}
 
-\chapter{Problem Statement}
 
 
 \chapter{Related Work}
@@ -359,13 +341,39 @@ temporal axis.
 As described in [] the MTF encodes the multi-span transition probabilities
 of the time series, but given that we have three different M’s we modify their
 approach and consider each M to be a separate color channel of RGB where
-Mangular is red, Mtime is blue, Mradial is green. We perform linear interpolation
-on each M individually to extend the probabilities to be within the range of 0 and 255.
-
-
-\section{}
+Mangular is red, Mtime is blue, Mradial is green. 
 
 \chapter{Main Results}
+
+\section{black box}
+Our black-box model is constructed of four different architectures, 1 LSTM and 2 CNN’s, that are concatenated at the dense layer. The four features we use are amplitude/phase of each level of decomposition for HV and VV. We chose four because we wanted to take into consideration both HV / VV in the event that one had more descriptive features than the other. Figure {X} depicts our model.
+
+
+To test our model we split our data into training and test sets by randomly selecting 70\% of our data as test and left the other 30\% as our test set. We then performed 3 fold cross validation and took the average of our results as our final outcome.
+
+
+
+
+\section{10k data}
+Given that this is much larger than our other data we split our data into 10\% training and 90\% test. We found no drop in performance nor in accuracy. 
+
+
+
+[add table for results]
+
+\section{white box}
+Our white box is composed of a model that takes in raw data as an input and converts each signal into an image through the MTF method. We then pass those images through a CNN and those that are correctly classified are shown to the user.
+
+In order to classify those images we created a CNN for it specifically and avoided using our existing CNN in order to make it deeper and increase performance when images aren’t that classifiable. We explored several architectures, such as, ResNet, Inception-v4, and AlexNet but we decided to create an architecture similar to AlexNet due to the variation and size of datasets we used we couldn’t create a model deeper or more complex than it otherwise performance would drop because we didn’t have enough data to properly train it.
+
+
+
+[add results]
+
+
+
+
+
 
 \chapter{Conclusion}
 \label{chap:conclusion}
