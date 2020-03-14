@@ -1,0 +1,42 @@
+\begin{thebibliography}{1}
+
+\bibitem{hill_uncertainty_nodate}
+Mitch Hill.
+\newblock {THE} {UNCERTAINTY} {PRINCIPLE} {FOR} {FOURIER} {TRANSFORMS} {ON}
+  {THE} {REAL} {LINE}.
+\newblock page~17.
+
+\bibitem{kim_multimodal_2018}
+Edward Kim and Kathleen~F. McCoy.
+\newblock Multimodal {Deep} {Learning} using {Images} and {Text} for
+  {Information} {Graphic} {Classification}.
+\newblock In {\em Proceedings of the 20th {International} {ACM} {SIGACCESS}
+  {Conference} on {Computers} and {Accessibility}}, {ASSETS} '18, pages
+  143--148, Galway, Ireland, October 2018. Association for Computing Machinery.
+
+\bibitem{mesleh_spatial_2008}
+Raed~Y. Mesleh, Harald Haas, Sinan Sinanovic, Chang~Wook Ahn, and Sangboh Yun.
+\newblock Spatial {Modulation}.
+\newblock {\em IEEE Transactions on Vehicular Technology}, 57(4):2228--2241,
+  July 2008.
+\newblock Conference Name: IEEE Transactions on Vehicular Technology.
+
+\bibitem{strang_wavelets_1996}
+G.~Strang and T.~Nguyen.
+\newblock {\em Wavelets and {Filter} {Banks}}.
+\newblock Wellesley-Cambridge Press, 1996.
+
+\bibitem{wang_hybrid_2019}
+Tong Wang and Qihang Lin.
+\newblock Hybrid {Predictive} {Model}: {When} an {Interpretable} {Model}
+  {Collaborates} with a {Black}-box {Model}.
+\newblock {\em arXiv:1905.04241 [cs, stat]}, May 2019.
+\newblock arXiv: 1905.04241.
+
+\bibitem{wang_encoding_nodate}
+Zhiguang Wang and Tim Oates.
+\newblock Encoding {Time} {Series} as {Images} for {Visual} {Inspection} and
+  {Classification} {Using} {Tiled} {Convolutional} {Neural} {Networks}.
+\newblock page~7.
+
+\end{thebibliography}

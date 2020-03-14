@@ -1,36 +1,33 @@
 \contentsline {chapter}{Abstract}{ii}{chapter*.1}% 
-\contentsline {chapter}{Illustrations}{iv}{chapter*.3}% 
+\contentsline {chapter}{Acknowledgments}{iii}{chapter*.2}% 
+\contentsline {chapter}{Illustrations}{v}{chapter*.4}% 
 \protect \addvspace {\tf@singlelineskip }
 \contentsline {chapter}{\numberline {Chapter 1}Introduction}{1}{chapter.1}% 
-\contentsline {section}{The need for interpretable models in management problems}{2}{section*.4}% 
-\contentsline {section}{Contributions}{2}{section*.5}% 
-\contentsline {section}{Data}{2}{section*.6}% 
-\contentsline {chapter}{\numberline {Chapter 2}Preprocessing}{4}{chapter.2}% 
-\contentsline {section}{Transformations}{4}{section*.7}% 
-\contentsline {subsection}{STFT/ FT}{4}{section*.8}% 
-\contentsline {subsection}{Shortcoming stft}{5}{section*.9}% 
+\contentsline {section}{Contributions}{1}{section*.5}% 
+\contentsline {chapter}{\numberline {Chapter 2}Data}{2}{chapter.2}% 
+\contentsline {chapter}{\numberline {Chapter 3}Related Work}{3}{chapter.3}% 
+\contentsline {chapter}{\numberline {Chapter 4}Preprocessing}{4}{chapter.4}% 
+\contentsline {section}{Transformations}{4}{section*.6}% 
+\contentsline {subsection}{Fourier Transform}{4}{section*.7}% 
+\contentsline {subsection}{Short-Time Fourier Transform}{5}{section*.8}% 
+\contentsline {subsection}{Sliding Window Method}{5}{section*.9}% 
 \contentsline {subsection}{Polar Coordinates}{5}{section*.10}% 
-\contentsline {subsection}{Transformation 2: Sliding window }{6}{section*.11}% 
-\contentsline {subsection}{Wavelets}{6}{section*.12}% 
+\contentsline {subsection}{Wavelets}{6}{section*.11}% 
 \contentsline {section}{Data Shape}{7}{section*.13}% 
 \contentsline {subsection}{Resampling}{7}{section*.14}% 
 \contentsline {subsection}{Each level}{7}{section*.15}% 
-\contentsline {chapter}{\numberline {Chapter 3}Models}{8}{chapter.3}% 
+\contentsline {chapter}{\numberline {Chapter 5}Models}{8}{chapter.5}% 
 \contentsline {section}{Definition}{8}{section*.16}% 
 \contentsline {subsection}{CNN}{8}{section*.17}% 
-\contentsline {subsection}{LSTM}{9}{section*.18}% 
-\contentsline {subsection}{multimodal}{10}{section*.19}% 
-\contentsline {section}{Architectures Used}{10}{section*.20}% 
-\contentsline {subsection}{CNN}{10}{section*.21}% 
-\contentsline {subsection}{LSTM}{11}{section*.22}% 
-\contentsline {subsection}{Final method}{11}{section*.23}% 
-\contentsline {section}{mtf}{11}{section*.24}% 
-\contentsline {section}{Notation}{12}{section*.25}% 
-\contentsline {section}{Layout}{12}{section*.26}% 
-\contentsline {chapter}{\numberline {Chapter 4}Related Work}{13}{chapter.4}% 
-\contentsline {chapter}{\numberline {Chapter 5}Markov Transition Fields}{14}{chapter.5}% 
-\contentsline {chapter}{\numberline {Chapter 6}Main Results}{15}{chapter.6}% 
-\contentsline {section}{black box}{15}{section*.27}% 
-\contentsline {section}{10k data}{15}{section*.28}% 
-\contentsline {section}{white box}{15}{section*.29}% 
-\contentsline {chapter}{\numberline {Chapter 7}Conclusion}{17}{chapter.7}% 
+\contentsline {subsection}{LSTM}{9}{section*.19}% 
+\contentsline {subsection}{Multimodal Deep Learning}{10}{section*.21}% 
+\contentsline {section}{Architectures Used}{11}{section*.22}% 
+\contentsline {subsection}{CNN}{11}{section*.23}% 
+\contentsline {subsection}{LSTM}{11}{section*.25}% 
+\contentsline {subsection}{Final Model}{12}{section*.27}% 
+\contentsline {chapter}{\numberline {Chapter 6}Markov Transition Fields}{14}{chapter.6}% 
+\contentsline {chapter}{\numberline {Chapter 7}Main Results}{16}{chapter.7}% 
+\contentsline {section}{Black-Box Model}{16}{section*.31}% 
+\contentsline {section}{Dataset B}{17}{section*.33}% 
+\contentsline {section}{White-Box Model}{17}{section*.34}% 
+\contentsline {chapter}{\numberline {Chapter 8}Conclusion}{18}{chapter.8}% 
