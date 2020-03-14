@@ -82,6 +82,11 @@
 
 % To address this issue, we propose an interpretable hybrid model that can be extended to any time series dataset. Our architecture is composed of two models, an ensemble method of classifiers that functions as a black-box method, and a white-box model that encodes time series as an image, attempts to classify them through a CNN, and outputs all images correctly classified in both black-box and white-box models.
 
+In this thesis, we study interpretable machine learning as applied to complex-valued time-series data. Scientists have studied the use of several machine learning methods such as Convolutional Neural Networks, Recurrent Neural Networks, and Support Vector Machines for time series classification. These methods, however, fall short of allowing users to visualize patterns within their dataset.
+
+To address this issue, we propose an interpretable hybrid model that can be extended to any time series dataset. In the majority of existing work in the field of interpretability, black-box models tend to outperform white-box models consistently. However, instead of relying purely on one method, we propose a collaboration between the two. This gives us the performance of a black-box while allowing us to visualize features of the majority of our dataset. 
+
+To accomplish this, we created a framework composed of two models, an ensemble method of classifiers that functions as a black-box method, and a white-box model that encodes time series as images. The white-box model attempts to classify them through a neural network and outputs all images correctly classified in both black-box and white-box models.
 
 \addcontentsline{toc}{chapter}{Abstract}
 \chapter{Acknowledgments}
@@ -94,10 +99,9 @@
 \label{chap:introduction}
 
 As time series datasets become ever so popular the need for deep learning models becomes greater.
-In our black-box model, we analyze deep learning models such as CNN’s which have become increasingly popular and widely used in the last decade but their complex nature makes it difficult for users to understand what is going on \cite{wang_hybrid_2019}. So, as black-box models get more popular the need for an interpretable accessory is needed so we propose a hybrid model consisting of a black box for classification and an interpretable white-box model which highlights characteristics of a time series for users to understand.
+In our black-box model, we analyze deep learning models such as Convolutional Neural Networks which have become increasingly popular and widely used in the last decade but their complex nature makes it difficult for users to understand what is going on inside \cite{wang_hybrid_2019}. So, as black-box models get more popular and increase in complexity the need for an interpretable accessory is needed so we propose a hybrid model consisting of a black-box for classification and an interpretable white-box model which highlights characteristics of a time series for users to understand.
 
-
-
+The goal of our work is not to find an alternative to black-box methods but to provide a way for users to have an understanding of what features are prevalent in their dataset.
 
 % \section{The need for interpretable models in management problems}
 % The growth of mobile devices and demand for wireless data has created a need for igh quality spectrum sensing and adaptation to improve spectral allocation and interference mitigation is an important route by which we may achieve this.  however have been constrained to relatively specialized solutions which lack the generality needed to deal with a complex and growing number emitter types, interference types and propagation environments.
@@ -110,6 +114,7 @@ We focus on creating deep learning architectures to classify our datasets as wel
 \chapter{Data}
 
 We analyzed our model on three radio signal datasets generated using Spatial Modulation. Spatial Modulation is a transmission technique that uses multiple antennas. It maps a block of information bits to two units, one is a symbol chosen from a constellation diagram, and the second one is a unique transmit antenna number that is chosen from a set of transmit antennas \cite{mesleh_spatial_2008}. The method in which transmit antennas send and receive radio waves can be described through polarization. Two popular basis polarizations are horizontal linear, H, and vertical linear, V. Our datasets contain data horizontally transmitted and vertically received (HV) and data vertically transmitted and vertically received.
+
 
 The two properties HV and VV, are given to us in raw discrete format. Both properties consist of time and amplitude values but vary in length and in how they are processed. The raw signal consists of over 31,000 data points with the exact time it was received. The size of the discrete data can vary from 22 to 44 data points and is a processed representation of the raw signal that has equally spaced values. In this thesis we focus on discrete data given that it is closer to datasets in real-world situations.
 
@@ -218,9 +223,7 @@ Wavelets are similar to the FT in which they deconstruct a signal using represen
 
 The use of wavelets is called the wavelet transform, which is a technique in which a signal is analyzed using different versions of a dilated and translated basis functions called the mother wavelet. There are two types of wavelet transformations, discrete and continuous. In this thesis, we focus on discrete. Discrete Wavelet Transform uses a discrete set of wavelet scales and translations which decompose the signal into a mutually orthogonal set of wavelets. 
 
-We take advantage of wavelets by applying discrete wavelet transforms as a filter-bank, which means it is composed of cascading high-pass and low-pass filters. This gives us the advantage of splitting a signal into several frequency sub-bands. Wavelet decompositions give us the advantage of gaining features that take into account frequency and time domains. 
-
-
+We take advantage of wavelets by applying discrete wavelet transforms as a filter-bank, which means it is composed of cascading high-pass and low-pass filters. This allows us to split a signal into several frequency sub-bands. We focus on wavelet decomposition as our feature extractor because it outperformed all other methods in terms of accuracy and training time.
 
 % Transformation 3: Wavelets
 
@@ -274,8 +277,6 @@ We use spline interpolation in order to resize each level of decomposition into 
 
 \subsection{Each level}
 Figure \ref{fig:multimodal_overview} depicts our model in which each level of decomposition is treated as its own dataset. We found no difference in accuracy compared to the resampling method. However, given that related work we found treated each decomposition level as its own dataset, we decided to go with this method. 
-
-
 
 
 \chapter{Models}
