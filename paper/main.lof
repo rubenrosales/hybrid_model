@@ -7,4 +7,4 @@
 \contentsline {figure}{\numberline {6.1}{\ignorespaces Example of QxQ quantile bin matrix used to calculate MTF.\relax }}{14}{figure.caption.29}% 
 \contentsline {figure}{\numberline {6.2}{\ignorespaces Markov Transition Field where W\textsubscript {ij} denotes the transition probability from quantile i to j.\relax }}{14}{figure.caption.30}% 
 \contentsline {figure}{\numberline {7.1}{\ignorespaces Results\relax }}{16}{figure.caption.32}% 
-\contentsline {figure}{\numberline {7.2}{\ignorespaces CNN architecture for classifying images generated through MTF's.\relax }}{17}{figure.caption.35}% 
+\contentsline {figure}{\numberline {7.2}{\ignorespaces CNN architecture for classifying images generated through MTF's.\relax }}{18}{figure.caption.35}% 

@@ -234,9 +234,9 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /Users/rubenrosales/Documents/research/thesis/paper/../media/results.png
 INPUT ../media/results.png
 INPUT ../media/results.png
-INPUT /Users/rubenrosales/Documents/research/thesis/paper/../media/alexnet.png
-INPUT ../media/alexnet.png
-INPUT ../media/alexnet.png
+INPUT /Users/rubenrosales/Documents/research/thesis/paper/../media/2d_cnn.png
+INPUT ../media/2d_cnn.png
+INPUT ../media/2d_cnn.png
 INPUT /Users/rubenrosales/Documents/research/thesis/paper/main.bbl
 INPUT /Users/rubenrosales/Documents/research/thesis/paper/main.bbl
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf
