@@ -90,7 +90,9 @@ To accomplish this, we created a framework composed of two models, an ensemble m
 
 \addcontentsline{toc}{chapter}{Abstract}
 \chapter{Acknowledgments}
-[to do]
+
+I want to thank Dr. Moon for his guidance and for allowing me to work on a project this extensive. I would also like to thank my friends and family for their continuous support throughout this thesis.
+
 \tableofcontents
 \listofillustrations
 
@@ -104,6 +106,14 @@ As the use and complexity of black-box models rises, so too does the need for an
 
 The goal of our work is not to find an alternative to black-box models, but to provide a way for users to have an understanding of what features are prevalent in their dataset.
 
+\begin{figure}[h!]
+   \begin{center}
+      \includegraphics[scale=0.5]{../media/overview_model.png}
+   \end{center}
+   \caption{Overview of our proposed hybrid model.}
+   \label{fig:overview_model}
+\end{figure}
+
 % \section{The need for interpretable models in management problems}
 % The growth of mobile devices and demand for wireless data has created a need for igh quality spectrum sensing and adaptation to improve spectral allocation and interference mitigation is an important route by which we may achieve this.  however have been constrained to relatively specialized solutions which lack the generality needed to deal with a complex and growing number emitter types, interference types and propagation environments.
 % This is a significant challenge in the community as expert systems designed to perform well on specialized tasks often lack flexibility and can be expensive and tedious to develop analytically.
@@ -114,16 +124,31 @@ We focus on creating deep learning architectures to classify our datasets as wel
 
 \chapter{Data}
 
-We analyzed our model on three radio signal datasets generated using Spatial Modulation. Spatial Modulation is a transmission technique that uses multiple antennae which maps a block of information bits to two units, a symbol chosen from a constellation diagram, and a unique transmit antenna number that is chosen from a set of transmit antennae \cite{mesleh_spatial_2008}. The method in which transmit antennae send and receive radio waves can be described through polarization. Two popular basis polarizations are horizontal linear, H, and vertical linear, V. Our datasets contain data horizontally transmitted and vertically received (HV), as well as data vertically transmitted and vertically received (VV).
+We analyzed our model on three radio signal datasets, which we will refer to as dataset A, B, and C throughout this thesis. These datasets were generated through Spatial Modulation which is a transmission technique that uses multiple antennae which maps a block of information bits to two units, a symbol chosen from a constellation diagram, and a unique transmit antenna number that is chosen from a set of transmit antennae \cite{mesleh_spatial_2008}. The method in which transmit antennae send and receive radio waves can be described through polarization. Two popular basis polarizations are horizontal linear, H, and vertical linear, V. Our datasets contain data horizontally transmitted and vertically received (HV), as well as data vertically transmitted and vertically received (VV).
 
+\begin{figure}[h!]
+   \begin{center}
+      \includegraphics[scale=0.5]{../media/dataset_info.png}
+   \end{center}
+   \caption{Size of each dataset.}
+   \label{fig:stft_example}
+\end{figure}
 
 The two properties, HV and VV, are given to us in a raw and discrete format. Both properties consist of time and amplitude values but vary in length and in how they are processed. The raw signal consists of over 31,000 data points with the exact time it was received. The size of the discrete data can vary from 22 to 44 data points and is a processed representation of the raw signal that has equally spaced values. In this thesis, we focus on discrete data given that it is closer to datasets in real-world situations.
+
 
 % [ What is raw signal and discrete, compare them, ]
 % [explain hv, vv]
 
 \chapter{Related Work}
 \label{chap:relatedwork}
+
+The study of interpretable hybrid models has been worked on extensively in the past few years as deep learning has become increasingly popular. Scientists take different approaches as to what makes a hybrid model interpretable and apply it to different domains, such as computer vision or time series. For example, in \cite{wang_multilevel_2018}, they focus on creating a black-box model for the classification of time-series that outperforms similar architectures. However, their white-box model focuses on analyzing the importance of their model's layers. This helps users identify the importance of wavelet decomposition but not necessarily understand their dataset. 
+
+Additionally, other work we found tends to focus on non-time-series data or creating a general framework defining the trade-off between interpretability and black-box methods. For instance, \cite{wang_hybrid_2019} defines a set of rules to achieve a high level of classification with interpretability but does not give any competitive methods to achieve this. 
+
+In order to fill the gap for a high performing interpretable model for time-series classification, we propose our hybrid model, which focuses on extensibility and robustness. We achieve this through a combination of deep learning models for classification as well as a unique white-box method to explaining features within classes of a given dataset.
+
 
 \chapter{Preprocessing}
 \label{chap:preprocessing}
@@ -178,7 +203,7 @@ Computing STFT requires the signal to be divided into segments of equal length a
 One of the issues with this method is that we can create very narrow window sizes, giving us a better understanding of the data with respect to time but losing an understanding of the frequency domain as a whole. Additionally, selecting an appropriate window size for segmenting the signal can be an arduous task that would require fine-tuning as well as increasing the dimensionality of a dataset.
 
 
-\begin{figure}[h!]
+\begin{figure}[h]
    \begin{center}
       \includegraphics[scale=0.6]{../media/stft.png}
    \end{center}
@@ -288,7 +313,17 @@ We use spline interpolation to resize each level of decomposition into a single 
 
 \subsection{Each Level of Decomposition as a Dataset}
 Figure \ref{fig:multimodal_overview} depicts our model in which each level of decomposition is a unique dataset. This method and the resampling method both achieved similar results, so we chose to move forward with this method.
-[make new figure]
+
+
+
+\begin{figure}[h!]
+   \begin{center}
+      \includegraphics[scale=0.35]{../media/wavelet_decomp.png}
+   \end{center}
+   \caption{Example of a wavelet decomposition network.}
+   \label{fig:wavelet_decomp}
+\end{figure}
+
 
 \chapter{Models}
 \label{chap:models}
@@ -303,7 +338,7 @@ Machine learning algorithms can be seen as learning a target function (f) that m
 \subsection{CNN}
 % [cnn]
 
-A Convolutional Neural Network is a type of deep neural network that can be applied to different domains such as computer vision or time series analysis. As seen in Figure X, it consists of an input and output layer as well as several hidden layers. A convolution is an operation between a vector of weights w against an input x \ref{}. It consists of taking the dot product between m and x in steps of a filter size defined by n.
+A Convolutional Neural Network is a type of deep neural network that can be applied to different domains such as computer vision or time series analysis. As seen in Figure X, it consists of an input and output layer as well as several hidden layers. A convolution is an operation between a vector of weights w against an input x \cite{yamashita_convolutional_2018}. It consists of taking the dot product between m and x in steps of a filter size defined by n.
 
 Convolutional Neural Networks perform feature learning via non-linear transformations implemented as a series of layers. The input data is a multidimensional array, called a tensor. The tensor is passed through an input layer, followed by a series of hidden layers to extract features, and an output layer, which in the case of classification, gives a probability for each class. 
 
@@ -312,8 +347,8 @@ Convolutional Neural Networks perform feature learning via non-linear transforma
    \begin{center}
       \includegraphics[scale=0.3]{../media/nn_highlight.jpeg}
    \end{center}
-   \caption{Example of a Convolutional Neural Network.}
-   \label{fig:reinforcementAgent}
+   \caption{Example of a Convolutional Neural Network \cite{yamashita_convolutional_2018}.}
+   \label{fig:cnn_example}
 \end{figure}
 
 Hidden layers are crucial to neural networks because they help in determining which data representations are useful for explaining the relationships in the given data. Each layer consists of several kernels,  which are feature detectors that convolve over the input data and output a transformed version of it. 
@@ -325,22 +360,22 @@ Hidden layers are crucial to neural networks because they help in determining wh
 % [lstm]
 Long short-term memory (LSTM) is an artificial recurrent neural network (RNN) architecture used in the field of deep learning. Unlike standard feedforward neural networks, LSTM has feedback connections, processing not only single data points but also entire sequences of data. 
 
-A standard LSTM unit is composed of a cell, an input gate, an output gate, and a forget gate. The cell remembers values over arbitrary time intervals, and the three gates regulate the flow of information into and out of the cell \ref{}.
+A standard LSTM unit is composed of a cell, an input gate, an output gate, and a forget gate. The cell remembers values over arbitrary time intervals, and the three gates regulate the flow of information into and out of the cell \cite{donahue_long-term_2016}.
 
-LSTM networks are well-suited to classifying, processing, and making predictions based on time series data since there can be lags of unknown duration between significant events in a time series. LSTMs are developed to deal with the vanishing gradient problems that can are encountered when training traditional RNNs \ref{}. 
+LSTM networks are well-suited to classifying, processing, and making predictions based on time series data since there can be lags of unknown duration between significant events in a time series. LSTMs are developed to deal with the vanishing gradient problems that can are encountered when training traditional RNNs \cite{donahue_long-term_2016}. 
 
 \begin{figure}[h!]
    \begin{center}
       \includegraphics[scale=0.5]{../media/lstm_highlight.png}
    \end{center}
-   \caption{Example of a LSTM unit.}
+   \caption{Example of a LSTM unit \cite{donahue_long-term_2016}.}
    \label{fig:reinforcementAgent}
 \end{figure}
 
 \subsection{Multimodal Deep Learning}
 
 % [multimodal]
-Due to the superior performance and computationally tractable representation capability in multiple domains such as visual, audio, and text, deep neural networks have gained tremendous popularity in multimodal learning tasks \cite{kim_multimodal_2018}. Typically, domain-specific neural networks are used on different modalities to generate their representations, and the individual representations are merged or aggregated \ref{}. Finally, the prediction is made on top of aggregated representation, usually with another neural network to capture the interactions between models and learn complex function mapping between input and output.
+Due to the superior performance and computationally tractable representation capability in multiple domains such as visual, audio, and text, deep neural networks have gained tremendous popularity in multimodal learning tasks \cite{kim_multimodal_2018}. Typically, domain-specific neural networks are used on different modalities to generate their representations, and the individual representations are merged or aggregated \cite{kim_multimodal_2018}. Finally, the prediction is made on top of aggregated representation, usually with another neural network to capture the interactions between models and learn complex function mapping between input and output.
 
 % [explain architectures]
 
@@ -379,7 +414,7 @@ We propose a multimodal learning architecture for time series classification, wh
 
 \begin{figure}[h!]
    \begin{center}
-      \includegraphics[scale=0.6]{../media/multimodal_overview.png}
+      \includegraphics[scale=0.65]{../media/multimodal_overview.png}
    \end{center}
    \caption{Overview of our black-box model.}
    \label{fig:multimodal_overview}
@@ -430,7 +465,7 @@ Given a time series X, we decompose its magnitude axis into three separate prope
    \begin{center}
       \includegraphics[scale=0.6]{../media/mtf_q.png}
    \end{center}
-   \caption{Example of QxQ quantile bin matrix used to calculate MTF.}
+   \caption{Example of QxQ quantile bin matrix used to calculate MTF \cite{wang_encoding_nodate}.}
    \label{fig:mtf_q}
 \end{figure}
  
@@ -478,21 +513,21 @@ We apply MTF to our dataset and classify our images using a network similar to A
    \begin{center}
       \includegraphics[scale=.7]{../media/2d_cnn.png}
    \end{center}
-   \caption{CNN architecture for classifying images generated through MTF's.}
+   \caption{CNN architecture for classifying images generated through MTF.}
    \label{fig:mtf_cnn_model}
 \end{figure}
 
 % [add results]
 
 
-
-
-
 \chapter{Main Results}
 \label{chap:results}
 
 \section{Black-Box Model}
-Our black-box model is constructed of three different architectures: 1 LSTM and 2 CNN’s that are all concatenated at their respective dense layer. The three features we use are the amplitude/phase of each level of decomposition for HV. We chose three because we wanted to increase the dimensionality of our data in the event that one had more descriptive features than the others.
+Our black-box model is constructed of three different architectures: 1 LSTM and 2 CNN’s that are all concatenated at their respective dense layer (Figure \ref{fig:multimodal_overview}). The three features we use are the amplitude/phase of each level of decomposition for HV. We chose three because we wanted to increase the dimensionality of our data in the event that one had more descriptive features than the others. 
+
+Additionally, we tested our model using three levels of decomposition using the property VV as well as a combination of both VV and HV. We found no change in accuracy, therefore to limit the number of models we used, we only utilized the HV property.
+
 
 To test our model, we split our data into training and test sets by randomly selecting 70\% of our data as our training set and leaving the other 30\% to be our test set. We then performed three-fold cross-validation and took the average of our results as the outcome.
 
@@ -513,6 +548,19 @@ Given that this dataset is ten times larget than our other two datasets, we want
 % [add table for results]
 
 \section{ MTF }
+ 
+In order to generate images using MTF, we have to select three properties, and we chose P\textsubscript{1} as the radial value of HV's amplitude value, P\textsubscript{2} as the radial value of VV's amplitude value, and P\textsubscript{3} as the absolute squared distance between every P\textsubscript{1} and P\textsubscript{2}. 
+
+We then split those images using a randomized 70/30 split where 70\% of the data is our training set, and the other 30\% is our test set. We were able to achieve 60\% accuracy across all three of our datasets and show the features amongst the classes behave differently, as can be seen in Figure \ref{fig:whitebox_images}.
+
+\begin{figure}[h!]
+   \begin{center}
+      \includegraphics[scale=0.5]{../media/whitebox_images.png}
+   \end{center}
+   \caption{Examples of images generated through MTF.}
+   \label{fig:whitebox_images}
+\end{figure}
+
 
 \chapter{Conclusion}
 \label{chap:conclusion}

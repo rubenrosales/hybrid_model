@@ -1,5 +1,13 @@
 \begin{thebibliography}{1}
 
+\bibitem{donahue_long-term_2016}
+Jeff Donahue, Lisa~Anne Hendricks, Marcus Rohrbach, Subhashini Venugopalan,
+  Sergio Guadarrama, Kate Saenko, and Trevor Darrell.
+\newblock Long-term {Recurrent} {Convolutional} {Networks} for {Visual}
+  {Recognition} and {Description}.
+\newblock {\em arXiv:1411.4389 [cs]}, May 2016.
+\newblock arXiv: 1411.4389.
+
 \bibitem{hill_uncertainty_nodate}
 Mitch Hill.
 \newblock {THE} {UNCERTAINTY} {PRINCIPLE} {FOR} {FOURIER} {TRANSFORMS} {ON}
@@ -26,6 +34,13 @@ G.~Strang and T.~Nguyen.
 \newblock {\em Wavelets and {Filter} {Banks}}.
 \newblock Wellesley-Cambridge Press, 1996.
 
+\bibitem{wang_multilevel_2018}
+Jingyuan Wang, Ze~Wang, Jianfeng Li, and Junjie Wu.
+\newblock Multilevel {Wavelet} {Decomposition} {Network} for {Interpretable}
+  {Time} {Series} {Analysis}.
+\newblock {\em arXiv:1806.08946 [cs, eess, stat]}, June 2018.
+\newblock arXiv: 1806.08946.
+
 \bibitem{wang_hybrid_2019}
 Tong Wang and Qihang Lin.
 \newblock Hybrid {Predictive} {Model}: {When} an {Interpretable} {Model}
@@ -38,5 +53,12 @@ Zhiguang Wang and Tim Oates.
 \newblock Encoding {Time} {Series} as {Images} for {Visual} {Inspection} and
   {Classification} {Using} {Tiled} {Convolutional} {Neural} {Networks}.
 \newblock page~7.
+
+\bibitem{yamashita_convolutional_2018}
+Rikiya Yamashita, Mizuho Nishio, Richard Kinh~Gian Do, and Kaori Togashi.
+\newblock Convolutional neural networks: an overview and application in
+  radiology.
+\newblock {\em Insights into Imaging}, 9(4):611--629, August 2018.
+\newblock Number: 4 Publisher: SpringerOpen.
 
 \end{thebibliography}

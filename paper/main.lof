@@ -1,11 +1,15 @@
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Example of Short-Time Fourier Transform.\relax }}{6}{figure.caption.9}% 
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Example of different types of wavelets \cite {strang_wavelets_1996}.\relax }}{7}{figure.caption.13}% 
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of a Convolutional Neural Network.\relax }}{10}{figure.caption.19}% 
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Example of a LSTM unit.\relax }}{11}{figure.caption.21}% 
-\contentsline {figure}{\numberline {5.3}{\ignorespaces CNN architecture used in our black-box model.\relax }}{12}{figure.caption.25}% 
-\contentsline {figure}{\numberline {5.4}{\ignorespaces LSTM architecture used in our black-box model.\relax }}{13}{figure.caption.27}% 
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Overview of our black-box model.\relax }}{14}{figure.caption.29}% 
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Example of QxQ quantile bin matrix used to calculate MTF.\relax }}{15}{figure.caption.31}% 
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Markov Transition Field where W\textsubscript {ij} denotes the transition probability from quantile i to j.\relax }}{16}{figure.caption.32}% 
-\contentsline {figure}{\numberline {6.3}{\ignorespaces CNN architecture for classifying images generated through MTF's.\relax }}{17}{figure.caption.34}% 
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Results\relax }}{18}{figure.caption.36}% 
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Overview of our proposed hybrid model.\relax }}{1}{figure.caption.5}% 
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Size of each dataset.\relax }}{3}{figure.caption.7}% 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Example of Short-Time Fourier Transform.\relax }}{7}{figure.caption.11}% 
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Example of different types of wavelets \cite {strang_wavelets_1996}.\relax }}{8}{figure.caption.15}% 
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Example of a wavelet decomposition network.\relax }}{10}{figure.caption.19}% 
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of a Convolutional Neural Network \cite {yamashita_convolutional_2018}.\relax }}{12}{figure.caption.22}% 
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Example of a LSTM unit \cite {donahue_long-term_2016}.\relax }}{13}{figure.caption.24}% 
+\contentsline {figure}{\numberline {5.3}{\ignorespaces CNN architecture used in our black-box model.\relax }}{14}{figure.caption.28}% 
+\contentsline {figure}{\numberline {5.4}{\ignorespaces LSTM architecture used in our black-box model.\relax }}{15}{figure.caption.30}% 
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Overview of our black-box model.\relax }}{16}{figure.caption.32}% 
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Example of QxQ quantile bin matrix used to calculate MTF \cite {wang_encoding_nodate}.\relax }}{17}{figure.caption.34}% 
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Markov Transition Field where W\textsubscript {ij} denotes the transition probability from quantile i to j.\relax }}{18}{figure.caption.35}% 
+\contentsline {figure}{\numberline {6.3}{\ignorespaces CNN architecture for classifying images generated through MTF.\relax }}{19}{figure.caption.37}% 
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Results\relax }}{21}{figure.caption.39}% 
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Examples of images generated through MTF.\relax }}{22}{figure.caption.42}% 
