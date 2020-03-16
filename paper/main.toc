@@ -10,24 +10,26 @@
 \contentsline {section}{Transformations}{4}{section*.6}% 
 \contentsline {subsection}{Fourier Transform}{4}{section*.7}% 
 \contentsline {subsection}{Short-Time Fourier Transform}{5}{section*.8}% 
-\contentsline {subsection}{Sliding Window Method}{5}{section*.9}% 
-\contentsline {subsection}{Polar Coordinates}{5}{section*.10}% 
-\contentsline {subsection}{Wavelets}{6}{section*.11}% 
-\contentsline {section}{Data Shape}{7}{section*.13}% 
-\contentsline {subsection}{Resampling}{7}{section*.14}% 
-\contentsline {subsection}{Each level}{7}{section*.15}% 
-\contentsline {chapter}{\numberline {Chapter 5}Models}{8}{chapter.5}% 
-\contentsline {section}{Definition}{8}{section*.16}% 
-\contentsline {subsection}{CNN}{8}{section*.17}% 
-\contentsline {subsection}{LSTM}{9}{section*.19}% 
-\contentsline {subsection}{Multimodal Deep Learning}{10}{section*.21}% 
-\contentsline {section}{Architectures Used}{11}{section*.22}% 
-\contentsline {subsection}{CNN}{11}{section*.23}% 
-\contentsline {subsection}{LSTM}{11}{section*.25}% 
-\contentsline {subsection}{Final Model}{12}{section*.27}% 
-\contentsline {chapter}{\numberline {Chapter 6}Markov Transition Fields}{14}{chapter.6}% 
-\contentsline {chapter}{\numberline {Chapter 7}Main Results}{16}{chapter.7}% 
-\contentsline {section}{Black-Box Model}{16}{section*.31}% 
-\contentsline {section}{Dataset B}{17}{section*.33}% 
-\contentsline {section}{White-Box Model}{17}{section*.34}% 
-\contentsline {chapter}{\numberline {Chapter 8}Conclusion}{19}{chapter.8}% 
+\contentsline {subsection}{Sliding Window Method}{5}{section*.10}% 
+\contentsline {subsection}{Polar Coordinates}{5}{section*.11}% 
+\contentsline {subsection}{Wavelets}{6}{section*.12}% 
+\contentsline {section}{Data Shape}{7}{section*.14}% 
+\contentsline {subsection}{Resampling}{8}{section*.15}% 
+\contentsline {subsection}{Each Level of Decomposition as a Dataset}{8}{section*.16}% 
+\contentsline {chapter}{\numberline {Chapter 5}Models}{9}{chapter.5}% 
+\contentsline {section}{Definition}{9}{section*.17}% 
+\contentsline {subsection}{CNN}{9}{section*.18}% 
+\contentsline {subsection}{LSTM}{10}{section*.20}% 
+\contentsline {subsection}{Multimodal Deep Learning}{11}{section*.22}% 
+\contentsline {section}{Architectures Used}{12}{section*.23}% 
+\contentsline {subsection}{CNN}{12}{section*.24}% 
+\contentsline {subsection}{LSTM}{12}{section*.26}% 
+\contentsline {subsection}{Final Model}{13}{section*.28}% 
+\contentsline {chapter}{\numberline {Chapter 6}Markov Transition Fields}{15}{chapter.6}% 
+\contentsline {section}{Method}{15}{section*.30}% 
+\contentsline {section}{Classification}{16}{section*.33}% 
+\contentsline {chapter}{\numberline {Chapter 7}Main Results}{18}{chapter.7}% 
+\contentsline {section}{Black-Box Model}{18}{section*.35}% 
+\contentsline {section}{Dataset B}{19}{section*.37}% 
+\contentsline {section}{ MTF }{19}{section*.38}% 
+\contentsline {chapter}{\numberline {Chapter 8}Conclusion}{20}{chapter.8}% 
