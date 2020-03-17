@@ -13,6 +13,11 @@
 \usepackage{multicol} 
 \usepackage[hidelinks]{hyperref}
 \usepackage{nameref}
+\usepackage{setspace}
+\usepackage{listings}
+
+\usepackage[toc,page]{appendix}
+
 
 \DeclareUnicodeCharacter{2215}{\textminus}
 \usepackage{algorithm}
@@ -100,8 +105,7 @@ I want to thank Dr. Moon for his guidance and for allowing me to work on a proje
 \chapter{Introduction}
 \label{chap:introduction}
 
-As time-series datasets become ever more popular, the need for deep learning models becomes that much greater.
-In our black-box model, we analyze deep learning models such as Convolutional Neural Networks, which have become increasingly popular and widely used in the last decade. However, their complex nature results in a lack of understanding of its inner workings \cite{wang_hybrid_2019}.
+As time-series datasets become ever more popular, the need for deep learning models becomes that much greater. In our black-box model, we analyze deep learning models such as Convolutional Neural Networks, which have become increasingly popular and widely used in the last decade  \cite{cui_multi-scale_2016}. However, their complex nature results in a lack of understanding of its inner workings \cite{wang_hybrid_2019}.
 As the use and complexity of black-box models rises, so too does the need for an interpretable accessory. For this reason, we propose a hybrid model consisting of a black-box for classification and an interpretable white-box which highlights characteristics of a time series for users to understand.
 
 The goal of our work is not to find an alternative to black-box models, but to provide a way for users to have an understanding of what features are prevalent in their dataset.
@@ -124,7 +128,7 @@ We focus on creating deep learning architectures to classify our datasets as wel
 
 \chapter{Data}
 
-We analyzed our model on three radio signal datasets, which we will refer to as dataset A, B, and C throughout this thesis. These datasets were generated through Spatial Modulation which is a transmission technique that uses multiple antennae which maps a block of information bits to two units, a symbol chosen from a constellation diagram, and a unique transmit antenna number that is chosen from a set of transmit antennae \cite{mesleh_spatial_2008}. The method in which transmit antennae send and receive radio waves can be described through polarization. Two popular basis polarizations are horizontal linear, H, and vertical linear, V. Our datasets contain data horizontally transmitted and vertically received (HV), as well as data vertically transmitted and vertically received (VV).
+We analyzed our model on three radio signal datasets, which we will refer to as dataset A, B, and C throughout this thesis. These datasets were generated through Spatial Modulation which is a transmission technique that uses multiple antennae which maps a block of information bits to two units, a symbol chosen from a constellation diagram, and a unique transmit antenna number that is chosen from a set of transmit antennae \cite{mesleh_spatial_2008}. The method in which transmit antennae send and receive radio waves can be described through polarization. Two popular basis polarizations are horizontal linear, H, and vertical linear, V \cite{oshea_convolutional_2016}. Our datasets contain data horizontally transmitted and vertically received (HV), as well as data vertically transmitted and vertically received (VV).
 
 \begin{figure}[h!]
    \begin{center}
@@ -170,7 +174,6 @@ We tried numerous methods to extract real-valued features, including Fourier Tra
 % % more important than the choice of the ML algorithm.
 
 
-
 \section{Transformations}
 
 
@@ -197,7 +200,7 @@ One of the shortcomings of the FT is rooted in the Heisenberg Uncertainty Princi
 \subsection{Short-Time Fourier Transform}
 % [stft]
 The Short-Time Fourier transform (STFT) is a Fourier related transform used to determine the sinusoidal frequency and phase content of local sections of a signal as it changes over time \cite{hill_uncertainty_nodate}.
-Computing STFT requires the signal to be divided into segments of equal length and then have the FT applied to that segment. This allows us to view the Fourier spectrum at a more granular level, which could potentially reveal different patterns amongst signals of different classes.
+Computing STFT requires the signal to be divided into segments of equal length and then have the FT applied to that segment \cite{allen_unified_1977}. This allows us to view the Fourier spectrum at a more granular level, which could potentially reveal different patterns amongst signals of different classes.
 
 
 One of the issues with this method is that we can create very narrow window sizes, giving us a better understanding of the data with respect to time but losing an understanding of the frequency domain as a whole. Additionally, selecting an appropriate window size for segmenting the signal can be an arduous task that would require fine-tuning as well as increasing the dimensionality of a dataset.
@@ -245,19 +248,19 @@ The representation of a complex number as a sum of a real and imaginary number, 
 
 \subsection{Wavelets}
 
-Wavelet transforms are similar to the FT in that they deconstruct a signal using representations of other signals. The key difference is that wavelet signals are finite in time and frequency as opposed to sine and cosine signals, which can carry on indefinitely \cite{strang_wavelets_1996}. This allows us to extract information from a signal with respect to time and location.
+Wavelet transforms are similar to the FT in that they deconstruct a signal using representations of other signals \cite{misiti_wavelets_2013}. The key difference is that wavelet signals are finite in time and frequency as opposed to sine and cosine signals, which can carry on indefinitely \cite{strang_wavelets_1996}. This allows us to extract information from a signal with respect to time and location.
 
 
 \begin{figure}[h!]
    \begin{center}
       \includegraphics[scale=0.4]{../media/wavelet_families.png}
    \end{center}
-   \caption{Example of different types of wavelets  \cite{strang_wavelets_1996}.}
+   \caption{Example of different types of wavelets \cite{lopez_development_2017}.}
    \label{fig:reinforcementAgent}
 \end{figure}
 
 
-A signal is analyzed using different versions of dilated and translated basis functions called the mother wavelet  \cite{strang_wavelets_1996}. There are two types of wavelet transformations, discrete and continuous. In this thesis, we focus on discrete wavelet transformations, which use a discrete set of wavelet scales and translations to decompose the signal into a mutually orthogonal set of wavelets. 
+A signal is analyzed using different versions of dilated and translated basis functions called the mother wavelet  \cite{strang_wavelets_1996}. There are two types of wavelet transformations, discrete and continuous \cite{imani_curve_2016}. In this thesis, we focus on discrete wavelet transformations, which use a discrete set of wavelet scales and translations to decompose the signal into a mutually orthogonal set of wavelets. 
 
 We take advantage of wavelets by applying discrete wavelet transforms as a filter-bank, meaning they are composed of cascading high-pass and low-pass filters. This allows us to split a signal into several frequency sub-bands  \cite{strang_wavelets_1996}. We focus on wavelet decomposition as our feature extractor because it outperformed all other methods in terms of accuracy and training time.
 
@@ -309,8 +312,8 @@ A neural network requires all data to be the same shape. However, because we dow
 
 \subsection{Resampling}
 
-We use spline interpolation to resize each level of decomposition into a single array. We tested different sizes of interpolation from N to N/3, where N is the size of the largest discrete signal size, and found no reduction in performance.
-
+We use spline interpolation to resize each level of decomposition into a single array because it allows to retain properties of our original data even in a higher dimension \cite{gregory_shape_1985}. We tested different sizes of interpolation from N to N/3, where N is the size of the largest discrete signal size, and found no reduction in performance.
+ 
 \subsection{Each Level of Decomposition as a Dataset}
 Figure \ref{fig:multimodal_overview} depicts our model in which each level of decomposition is a unique dataset. This method and the resampling method both achieved similar results, so we chose to move forward with this method.
 
@@ -340,14 +343,14 @@ Machine learning algorithms can be seen as learning a target function (f) that m
 
 A Convolutional Neural Network is a type of deep neural network that can be applied to different domains such as computer vision or time series analysis. As seen in Figure X, it consists of an input and output layer as well as several hidden layers. A convolution is an operation between a vector of weights w against an input x \cite{yamashita_convolutional_2018}. It consists of taking the dot product between m and x in steps of a filter size defined by n.
 
-Convolutional Neural Networks perform feature learning via non-linear transformations implemented as a series of layers. The input data is a multidimensional array, called a tensor. The tensor is passed through an input layer, followed by a series of hidden layers to extract features, and an output layer, which in the case of classification, gives a probability for each class. 
+Convolutional Neural Networks perform feature learning via non-linear transformations implemented as a series of layers \cite{aqib_smarter_2019}. The input data is a multidimensional array, called a tensor. The tensor is passed through an input layer, followed by a series of hidden layers to extract features, and an output layer, which in the case of classification, gives a probability for each class. 
 
 % create your own design
 \begin{figure}[h!]
    \begin{center}
-      \includegraphics[scale=0.3]{../media/nn_highlight.jpeg}
+      \includegraphics[scale=0.5]{../media/cnn_example.png}
    \end{center}
-   \caption{Example of a Convolutional Neural Network \cite{yamashita_convolutional_2018}.}
+   \caption{Example of a Convolutional Neural Network \cite{alom_state---art_2019}.}
    \label{fig:cnn_example}
 \end{figure}
 
@@ -375,7 +378,7 @@ LSTM networks are well-suited to classifying, processing, and making predictions
 \subsection{Multimodal Deep Learning}
 
 % [multimodal]
-Due to the superior performance and computationally tractable representation capability in multiple domains such as visual, audio, and text, deep neural networks have gained tremendous popularity in multimodal learning tasks \cite{kim_multimodal_2018}. Typically, domain-specific neural networks are used on different modalities to generate their representations, and the individual representations are merged or aggregated \cite{kim_multimodal_2018}. Finally, the prediction is made on top of aggregated representation, usually with another neural network to capture the interactions between models and learn complex function mapping between input and output.
+Due to the superior performance and computationally tractable representation capability in multiple domains such as visual, audio, and text, deep neural networks have gained tremendous popularity in multimodal learning tasks \cite{kim_multimodal_2018}. Typically, domain-specific neural networks are used on different modalities to generate their representations, and the individual representations are merged or aggregated \cite{liu_learn_2018}. Finally, the prediction is made on top of aggregated representation, usually with another neural network to capture the interactions between models and learn complex function mapping between input and output.
 
 % [explain architectures]
 
@@ -529,8 +532,6 @@ Our black-box model is constructed of three different architectures: 1 LSTM and 
 Additionally, we tested our model using three levels of decomposition using the property VV as well as a combination of both VV and HV. We found no change in accuracy, therefore to limit the number of models we used, we only utilized the HV property.
 
 
-To test our model, we split our data into training and test sets by randomly selecting 70\% of our data as our training set and leaving the other 30\% to be our test set. We then performed three-fold cross-validation and took the average of our results as the outcome.
-
 \begin{figure}[h!]
    \begin{center}
       \includegraphics[scale=0.6]{../media/results.png}
@@ -540,7 +541,12 @@ To test our model, we split our data into training and test sets by randomly sel
 \end{figure}
 
 
-\section{Dataset B}
+To test our model, we split our data into training and test sets by randomly selecting 70\% of our data as our training set and leaving the other 30\% to be our test set. We then performed three-fold cross-validation and took the average of our results as the outcome.
+
+
+
+
+\section{Dataset C}
 
 Given that this dataset is ten times larget than our other two datasets, we wanted to try different training and test splits, going as low as 8\% for training data and using the remaining 92\% as test data. We ran the same number of cross-validations as our previous tests and found minimal difference in performance.
 
@@ -569,6 +575,28 @@ Throughout this thesis, we have stressed the importance of a hybrid machine lear
 We proposed an extension to existing work described in \cite{wang_encoding_nodate} to help users visualize their data while performing classification  with 60\% accuracy on that dataset and model. We also created a robust black-box model consisting of two different deep learning architectures that consistently provided competitive accuracy.
 
 In the future, we would like to explore other methods for our white-box model that would act as an alternative to Markov Transition Fields in hopes that it produces higher accuracy than our current model. Additionally, we would like to extensively test our model on different time-series datasets outside of radio signal datasets.
+
+\begin{appendices}
+   \chapter{MTF Code}
+      \section{Main File}
+         \lstinputlisting[language=Python,  basicstyle=\small, columns=fullflexible ]{../code/mtf/main.py}
+      \section{Calculating MTF}
+         \lstinputlisting[language=Python,  basicstyle=\small, columns=fullflexible]{../code/mtf/complex_signal.py}
+      \section{Helper functions}
+         \lstinputlisting[language=Python,  basicstyle=\small, columns=fullflexible]{../code/mtf/util.py}
+   \chapter{Hybrid Model Code}
+      \section{Main File}
+         \lstinputlisting[language=Python,  basicstyle=\small, columns=fullflexible]{../code/hybrid_model/main.py}
+      \section{White-Box Model}
+         \lstinputlisting[language=Python,  basicstyle=\small, columns=fullflexible]{../code/hybrid_model/white_box.py}
+      \section{Black-Box Model}
+         \lstinputlisting[language=Python,  basicstyle=\small, columns=fullflexible]{../code/hybrid_model/black_box.py}
+
+
+
+
+
+\end{appendices}
 
 
 \bibliography{../references/main}

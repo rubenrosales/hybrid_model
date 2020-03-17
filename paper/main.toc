@@ -30,6 +30,15 @@
 \contentsline {section}{Classification}{18}{section*.36}% 
 \contentsline {chapter}{\numberline {Chapter 7}Main Results}{20}{chapter.7}% 
 \contentsline {section}{Black-Box Model}{20}{section*.38}% 
-\contentsline {section}{Dataset B}{20}{section*.40}% 
+\contentsline {section}{Dataset C}{21}{section*.40}% 
 \contentsline {section}{ MTF }{21}{section*.41}% 
 \contentsline {chapter}{\numberline {Chapter 8}Conclusion}{23}{chapter.8}% 
+\contentsline {chapter}{Appendices}{24}{section*.43}% 
+\contentsline {chapter}{\numberline {Appendix A}MTF Code}{25}{Appendix.1.A}% 
+\contentsline {section}{Main File}{25}{section*.44}% 
+\contentsline {section}{Calculating MTF}{29}{section*.45}% 
+\contentsline {section}{Helper functions}{35}{section*.46}% 
+\contentsline {chapter}{\numberline {Appendix B}Hybrid Model Code}{39}{Appendix.1.B}% 
+\contentsline {section}{Main File}{39}{section*.47}% 
+\contentsline {section}{White-Box Model}{41}{section*.48}% 
+\contentsline {section}{Black-Box Model}{46}{section*.49}% 

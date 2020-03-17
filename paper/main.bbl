@@ -1,4 +1,32 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{allen_unified_1977}
+J.B. Allen and L.R. Rabiner.
+\newblock A unified approach to short-time {Fourier} analysis and synthesis.
+\newblock {\em Proceedings of the IEEE}, 65(11):1558--1564, November 1977.
+\newblock Conference Name: Proceedings of the IEEE.
+
+\bibitem{alom_state---art_2019}
+Md.~Zahangir Alom, Tarek Taha, Chris Yakopcic, Stefan Westberg, Paheding
+  Sidike, Mst Nasrin, Mahmudul Hasan, Brian Essen, Abdul Awwal, and Vijayan
+  Asari.
+\newblock A {State}-of-the-{Art} {Survey} on {Deep} {Learning} {Theory} and
+  {Architectures}.
+\newblock {\em Electronics}, 8:292, March 2019.
+
+\bibitem{aqib_smarter_2019}
+Muhammad Aqib, Rashid Mehmood, Ahmed Alzahrani, Iyad Katib, Aiiad Albeshri, and
+  Saleh Altowaijri.
+\newblock Smarter {Traffic} {Prediction} {Using} {Big} {Data}, {In}-{Memory}
+  {Computing}, {Deep} {Learning} and {GPUs}.
+\newblock {\em Sensors}, 19:2206, May 2019.
+
+\bibitem{cui_multi-scale_2016}
+Zhicheng Cui, Wenlin Chen, and Yixin Chen.
+\newblock Multi-{Scale} {Convolutional} {Neural} {Networks} for {Time} {Series}
+  {Classification}.
+\newblock {\em arXiv:1603.06995 [cs]}, May 2016.
+\newblock arXiv: 1603.06995.
 
 \bibitem{donahue_long-term_2016}
 Jeff Donahue, Lisa~Anne Hendricks, Marcus Rohrbach, Subhashini Venugopalan,
@@ -8,11 +36,24 @@ Jeff Donahue, Lisa~Anne Hendricks, Marcus Rohrbach, Subhashini Venugopalan,
 \newblock {\em arXiv:1411.4389 [cs]}, May 2016.
 \newblock arXiv: 1411.4389.
 
+\bibitem{gregory_shape_1985}
+J.~A. Gregory.
+\newblock Shape {Preserving} {Spline} {Interpolation}.
+\newblock June 1985.
+
 \bibitem{hill_uncertainty_nodate}
 Mitch Hill.
 \newblock {THE} {UNCERTAINTY} {PRINCIPLE} {FOR} {FOURIER} {TRANSFORMS} {ON}
   {THE} {REAL} {LINE}.
 \newblock page~17.
+
+\bibitem{imani_curve_2016}
+Maryam Imani and Hassan Ghassemian.
+\newblock Curve fitting, filter bank and wavelet feature fusion for
+  classification of {PCG} signals.
+\newblock In {\em 2016 24th {Iranian} {Conference} on {Electrical}
+  {Engineering} ({ICEE})}, pages 203--208, May 2016.
+\newblock ISSN: null.
 
 \bibitem{kim_multimodal_2018}
 Edward Kim and Kathleen~F. McCoy.
@@ -22,12 +63,36 @@ Edward Kim and Kathleen~F. McCoy.
   {Conference} on {Computers} and {Accessibility}}, {ASSETS} '18, pages
   143--148, Galway, Ireland, October 2018. Association for Computing Machinery.
 
+\bibitem{liu_learn_2018}
+Kuan Liu, Yanen Li, Ning Xu, and Prem Natarajan.
+\newblock Learn to {Combine} {Modalities} in {Multimodal} {Deep} {Learning}.
+\newblock {\em arXiv:1805.11730 [cs, stat]}, May 2018.
+\newblock arXiv: 1805.11730.
+
+\bibitem{lopez_development_2017}
+Alberto López, Francisco~Javier Martin, David Yangüela, and Constantina
+  Alvarez~Peña.
+\newblock Development of a {Computer} {Writing} {System} {Based} on {EOG}.
+\newblock {\em Sensors}, 17:1505, June 2017.
+
 \bibitem{mesleh_spatial_2008}
 Raed~Y. Mesleh, Harald Haas, Sinan Sinanovic, Chang~Wook Ahn, and Sangboh Yun.
 \newblock Spatial {Modulation}.
 \newblock {\em IEEE Transactions on Vehicular Technology}, 57(4):2228--2241,
   July 2008.
 \newblock Conference Name: IEEE Transactions on Vehicular Technology.
+
+\bibitem{misiti_wavelets_2013}
+Michel Misiti, Yves Misiti, Georges Oppenheim, and Jean-Michel Poggi.
+\newblock {\em Wavelets and their {Applications}}.
+\newblock John Wiley \& Sons, March 2013.
+\newblock Google-Books-ID: EeMYyvA5PDoC.
+
+\bibitem{oshea_convolutional_2016}
+Timothy~J. O'Shea, Johnathan Corgan, and T.~Charles Clancy.
+\newblock Convolutional {Radio} {Modulation} {Recognition} {Networks}.
+\newblock {\em arXiv:1602.04105 [cs]}, June 2016.
+\newblock arXiv: 1602.04105.
 
 \bibitem{strang_wavelets_1996}
 G.~Strang and T.~Nguyen.
