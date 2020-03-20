@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1584733885 "main.aux" "main.bbl" "main" 1584733965
+["bibtex main"] 1584733885 "main.aux" "main.bbl" "main" 1584733985
   "../references/main.bib" 1584417398 44255 065179a1201e162f4c09beaabe7b55b4 ""
   "/usr/local/texlive/2019/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "main.aux" 1584733965 13505 64daea232a15eedadeff99a983b66611 "pdflatex"
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1584733963 "/Users/rubenrosales/Documents/research/thesis/paper/main.tex" "/Users/rubenrosales/Documents/research/thesis/paper/main.pdf" "main" 1584733965
+["pdflatex"] 1584733963 "/Users/rubenrosales/Documents/research/thesis/paper/main.tex" "/Users/rubenrosales/Documents/research/thesis/paper/main.pdf" "main" 1584733985
   "../code/hybrid_model/black_box.py" 1584415340 8430 47cf059db21561460502f899f5940aec ""
   "../code/hybrid_model/main.py" 1584415524 1590 25dfba22f7fab485dc8ce617159646f1 ""
   "../code/hybrid_model/white_box.py" 1584415309 3535 7cafed70b4f6b8bfe2c087c7c3df6578 ""
@@ -150,12 +150,12 @@
   "main.tex" 1584733961 39125 6a8dd0e58b85c1cf505f5d565be9849f ""
   "main.toc" 1584733965 2825 e6ccfb0a9d7d192720703e1ac884efb1 "pdflatex"
   (generated)
-  "main.pdf"
-  "main.lof"
-  "/Users/rubenrosales/Documents/research/thesis/paper/main.pdf"
-  "main.log"
-  "main.lot"
-  "/Users/rubenrosales/Documents/research/thesis/paper/main.log"
-  "main.toc"
-  "main.out"
   "main.aux"
+  "main.lot"
+  "main.log"
+  "main.out"
+  "main.pdf"
+  "main.toc"
+  "/Users/rubenrosales/Documents/research/thesis/paper/main.log"
+  "/Users/rubenrosales/Documents/research/thesis/paper/main.pdf"
+  "main.lof"
