@@ -135,10 +135,33 @@ We analyzed our model on three radio signal datasets, which we will refer to as 
       \includegraphics[scale=0.5]{../media/dataset_info.png}
    \end{center}
    \caption{Size of each dataset.}
-   \label{fig:stft_example}
+   \label{fig:dataset_info}
 \end{figure}
 
 The two properties, HV and VV, are given to us in a raw and discrete format. Both properties consist of time and amplitude values but vary in length and in how they are processed. The raw signal consists of over 31,000 data points with the exact time it was received. The size of the discrete data can vary from 22 to 44 data points and is a processed representation of the raw signal that has equally spaced values. In this thesis, we focus on discrete data given that it is closer to datasets in real-world situations.
+
+\section{Dataset Classes}
+
+Dataset A and C were generated through similar methods and can be visually seen in Figure \ref{fig:dataset_ac}. There are three base stations, in which each base station corresponds to a class, sending information to a single receiver antenna.
+
+
+\begin{figure}[h!]
+   \begin{center}
+      \includegraphics[scale=0.4]{../media/dataset_ac.png}
+   \end{center}
+   \caption{Class representation of how dataset A and C.}
+   \label{fig:dataset_ac}
+\end{figure}
+
+Dataset B differs from dataset A and C in how it transmits data. In \ref{fig:dataset_b}, we can see that there are three different antennas at the same station sending information to a single receiver station. The problem of classification becomes more challenging because they are very close together.
+
+\begin{figure}[h!]
+   \begin{center}
+      \includegraphics[scale=0.5]{../media/dataset_b.png}
+   \end{center}
+   \caption{Class representation of how dataset B.}
+   \label{fig:dataset_b}
+\end{figure}
 
 
 % [ What is raw signal and discrete, compare them, ]
@@ -474,9 +497,6 @@ Given a time series X, we decompose its magnitude axis into three separate prope
  
 
 %summation %. This effectively removes any sensitivity to the X’s distribution and temporal dependency to each time step t i. To account for any information loss after removing the temporal dependency, we follow the same approach as \cite{wang} and construct a Markov Transition Field for each property like so: %some figure%
-
-
-
 
 W does not take into account the temporal axis, so to prevent any information loss, we construct a Markov Transition Field, M, for each W. The MTF denotes the probability of transitioning from q\textsubscript{i} to q\textsubscript{j} for each $x \in P$. This, in turn, allows us to consider the transition probability on the magnitude and temporal axis.
 

@@ -5,40 +5,41 @@
 \contentsline {chapter}{\numberline {Chapter 1}Introduction}{1}{chapter.1}% 
 \contentsline {section}{Contributions}{1}{section*.6}% 
 \contentsline {chapter}{\numberline {Chapter 2}Data}{3}{chapter.2}% 
-\contentsline {chapter}{\numberline {Chapter 3}Related Work}{4}{chapter.3}% 
-\contentsline {chapter}{\numberline {Chapter 4}Preprocessing}{5}{chapter.4}% 
-\contentsline {section}{Transformations}{5}{section*.8}% 
-\contentsline {subsection}{Fourier Transform}{5}{section*.9}% 
-\contentsline {subsection}{Short-Time Fourier Transform}{6}{section*.10}% 
-\contentsline {subsection}{Sliding Window Method}{6}{section*.12}% 
-\contentsline {subsection}{Polar Coordinates}{6}{section*.13}% 
-\contentsline {subsection}{Wavelets}{7}{section*.14}% 
-\contentsline {section}{Data Shape}{8}{section*.16}% 
-\contentsline {subsection}{Resampling}{9}{section*.17}% 
-\contentsline {subsection}{Each Level of Decomposition as a Dataset}{9}{section*.18}% 
-\contentsline {chapter}{\numberline {Chapter 5}Models}{11}{chapter.5}% 
-\contentsline {section}{Definition}{11}{section*.20}% 
-\contentsline {subsection}{CNN}{11}{section*.21}% 
-\contentsline {subsection}{LSTM}{12}{section*.23}% 
-\contentsline {subsection}{Multimodal Deep Learning}{13}{section*.25}% 
-\contentsline {section}{Architectures Used}{14}{section*.26}% 
-\contentsline {subsection}{CNN}{14}{section*.27}% 
-\contentsline {subsection}{LSTM}{14}{section*.29}% 
-\contentsline {subsection}{Final Model}{15}{section*.31}% 
-\contentsline {chapter}{\numberline {Chapter 6}Markov Transition Fields}{17}{chapter.6}% 
-\contentsline {section}{Method}{17}{section*.33}% 
-\contentsline {section}{Classification}{18}{section*.36}% 
-\contentsline {chapter}{\numberline {Chapter 7}Main Results}{20}{chapter.7}% 
-\contentsline {section}{Black-Box Model}{20}{section*.38}% 
-\contentsline {section}{Dataset C}{21}{section*.40}% 
-\contentsline {section}{ MTF }{21}{section*.41}% 
-\contentsline {chapter}{\numberline {Chapter 8}Conclusion}{23}{chapter.8}% 
-\contentsline {chapter}{Appendices}{24}{section*.43}% 
-\contentsline {chapter}{\numberline {Appendix A}MTF Code}{25}{Appendix.1.A}% 
-\contentsline {section}{Main File}{25}{section*.44}% 
-\contentsline {section}{Calculating MTF}{29}{section*.45}% 
-\contentsline {section}{Helper functions}{35}{section*.46}% 
-\contentsline {chapter}{\numberline {Appendix B}Hybrid Model Code}{39}{Appendix.1.B}% 
-\contentsline {section}{Main File}{39}{section*.47}% 
-\contentsline {section}{White-Box Model}{41}{section*.48}% 
-\contentsline {section}{Black-Box Model}{46}{section*.49}% 
+\contentsline {section}{Dataset Classes}{4}{section*.8}% 
+\contentsline {chapter}{\numberline {Chapter 3}Related Work}{6}{chapter.3}% 
+\contentsline {chapter}{\numberline {Chapter 4}Preprocessing}{7}{chapter.4}% 
+\contentsline {section}{Transformations}{7}{section*.11}% 
+\contentsline {subsection}{Fourier Transform}{7}{section*.12}% 
+\contentsline {subsection}{Short-Time Fourier Transform}{8}{section*.13}% 
+\contentsline {subsection}{Sliding Window Method}{8}{section*.15}% 
+\contentsline {subsection}{Polar Coordinates}{8}{section*.16}% 
+\contentsline {subsection}{Wavelets}{9}{section*.17}% 
+\contentsline {section}{Data Shape}{10}{section*.19}% 
+\contentsline {subsection}{Resampling}{11}{section*.20}% 
+\contentsline {subsection}{Each Level of Decomposition as a Dataset}{11}{section*.21}% 
+\contentsline {chapter}{\numberline {Chapter 5}Models}{13}{chapter.5}% 
+\contentsline {section}{Definition}{13}{section*.23}% 
+\contentsline {subsection}{CNN}{13}{section*.24}% 
+\contentsline {subsection}{LSTM}{14}{section*.26}% 
+\contentsline {subsection}{Multimodal Deep Learning}{15}{section*.28}% 
+\contentsline {section}{Architectures Used}{16}{section*.29}% 
+\contentsline {subsection}{CNN}{16}{section*.30}% 
+\contentsline {subsection}{LSTM}{16}{section*.32}% 
+\contentsline {subsection}{Final Model}{17}{section*.34}% 
+\contentsline {chapter}{\numberline {Chapter 6}Markov Transition Fields}{19}{chapter.6}% 
+\contentsline {section}{Method}{19}{section*.36}% 
+\contentsline {section}{Classification}{20}{section*.39}% 
+\contentsline {chapter}{\numberline {Chapter 7}Main Results}{22}{chapter.7}% 
+\contentsline {section}{Black-Box Model}{22}{section*.41}% 
+\contentsline {section}{Dataset C}{23}{section*.43}% 
+\contentsline {section}{ MTF }{23}{section*.44}% 
+\contentsline {chapter}{\numberline {Chapter 8}Conclusion}{25}{chapter.8}% 
+\contentsline {chapter}{Appendices}{26}{section*.46}% 
+\contentsline {chapter}{\numberline {Appendix A}MTF Code}{27}{Appendix.1.A}% 
+\contentsline {section}{Main File}{27}{section*.47}% 
+\contentsline {section}{Calculating MTF}{31}{section*.48}% 
+\contentsline {section}{Helper functions}{37}{section*.49}% 
+\contentsline {chapter}{\numberline {Appendix B}Hybrid Model Code}{41}{Appendix.1.B}% 
+\contentsline {section}{Main File}{41}{section*.50}% 
+\contentsline {section}{White-Box Model}{43}{section*.51}% 
+\contentsline {section}{Black-Box Model}{48}{section*.52}% 

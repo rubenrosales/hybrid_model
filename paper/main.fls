@@ -197,6 +197,12 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/times/ptmro7t.tfm
 INPUT /Users/rubenrosales/Documents/research/thesis/paper/../media/dataset_info.png
 INPUT ../media/dataset_info.png
 INPUT ../media/dataset_info.png
+INPUT /Users/rubenrosales/Documents/research/thesis/paper/../media/dataset_ac.png
+INPUT ../media/dataset_ac.png
+INPUT ../media/dataset_ac.png
+INPUT /Users/rubenrosales/Documents/research/thesis/paper/../media/dataset_b.png
+INPUT ../media/dataset_b.png
+INPUT ../media/dataset_b.png
 INPUT /Users/rubenrosales/Documents/research/thesis/paper/../media/stft.png
 INPUT ../media/stft.png
 INPUT ../media/stft.png

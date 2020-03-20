@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  17 MAR 2020 13:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  20 MAR 2020 12:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -472,9 +472,6 @@ Package: nowidow 2011/09/20 1.0 Easily prevent widows and orphans
 Package: nowidow 
 ) (/Users/rubenrosales/Documents/research/thesis/paper/main.aux
 
-LaTeX Warning: Label `fig:stft_example' multiply defined.
-
-
 LaTeX Warning: Label `fig:reinforcementAgent' multiply defined.
 
 )
@@ -589,7 +586,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 Chapter 1.
-<../media/overview_model.png, id=139, 860.013pt x 209.583pt>
+<../media/overview_model.png, id=143, 860.013pt x 209.583pt>
 File: ../media/overview_model.png Graphic file (type png)
 <use ../media/overview_model.png>
 Package pdftex.def Info: ../media/overview_model.png  used on input line 115.
@@ -599,148 +596,163 @@ Package pdftex.def Info: ../media/overview_model.png  used on input line 115.
 
  <../media/overview_model.png>] [2]
 Chapter 2.
-<../media/dataset_info.png, id=156, 833.9958pt x 67.9338pt>
+<../media/dataset_info.png, id=160, 833.9958pt x 67.9338pt>
 File: ../media/dataset_info.png Graphic file (type png)
 <use ../media/dataset_info.png>
 Package pdftex.def Info: ../media/dataset_info.png  used on input line 135.
 (pdftex.def)             Requested size: 416.99689pt x 33.96681pt.
+<../media/dataset_ac.png, id=162, 532.99126pt x 567.11874pt>
+File: ../media/dataset_ac.png Graphic file (type png)
+<use ../media/dataset_ac.png>
+Package pdftex.def Info: ../media/dataset_ac.png  used on input line 150.
+(pdftex.def)             Requested size: 213.19272pt x 226.84348pt.
 [3
 
  <../media/dataset_info.png>]
+<../media/dataset_b.png, id=172, 460.72125pt x 369.38pt>
+File: ../media/dataset_b.png Graphic file (type png)
+<use ../media/dataset_b.png>
+Package pdftex.def Info: ../media/dataset_b.png  used on input line 160.
+(pdftex.def)             Requested size: 230.36006pt x 184.68954pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4 <../media/dataset_ac.png>] [5 <../media/dataset_b.png>]
 Chapter 3.
-[4
+[6
 
 ]
 Chapter 4.
-[5
+[7
 
 ]
-<../media/stft.png, id=182, 673.51625pt x 602.25pt>
+<../media/stft.png, id=201, 673.51625pt x 602.25pt>
 File: ../media/stft.png Graphic file (type png)
 <use ../media/stft.png>
-Package pdftex.def Info: ../media/stft.png  used on input line 211.
+Package pdftex.def Info: ../media/stft.png  used on input line 234.
 (pdftex.def)             Requested size: 404.11287pt x 361.35278pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6]
-<../media/wavelet_families.png, id=193, 827.09pt x 424.58624pt>
+[8]
+<../media/wavelet_families.png, id=213, 827.09pt x 424.58624pt>
 File: ../media/wavelet_families.png Graphic file (type png)
 <use ../media/wavelet_families.png>
-Package pdftex.def Info: ../media/wavelet_families.png  used on input line 256.
+Package pdftex.def Info: ../media/wavelet_families.png  used on input line 279.
 (pdftex.def)             Requested size: 330.83012pt x 169.83148pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[7 <../media/stft.png>] [8 <../media/wavelet_families.png>]
-<../media/wavelet_decomp.png, id=217, 1225.57875pt x 904.37875pt>
+[9 <../media/stft.png>] [10 <../media/wavelet_families.png>]
+<../media/wavelet_decomp.png, id=236, 1225.57875pt x 904.37875pt>
 File: ../media/wavelet_decomp.png Graphic file (type png)
 <use ../media/wavelet_decomp.png>
-Package pdftex.def Info: ../media/wavelet_decomp.png  used on input line 324.
+Package pdftex.def Info: ../media/wavelet_decomp.png  used on input line 347.
 (pdftex.def)             Requested size: 428.959pt x 316.53731pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[9] [10 <../media/wavelet_decomp.png>]
+[11] [12 <../media/wavelet_decomp.png>]
 Chapter 5.
-<../media/cnn_example.png, id=232, 853.1875pt x 356.33125pt>
+<../media/cnn_example.png, id=251, 853.1875pt x 356.33125pt>
 File: ../media/cnn_example.png Graphic file (type png)
 <use ../media/cnn_example.png>
-Package pdftex.def Info: ../media/cnn_example.png  used on input line 351.
+Package pdftex.def Info: ../media/cnn_example.png  used on input line 374.
 (pdftex.def)             Requested size: 426.59271pt x 178.16518pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[11
+[13
 
 ]
-<../media/lstm_highlight.png, id=245, 544.0325pt x 358.33875pt>
+<../media/lstm_highlight.png, id=264, 544.0325pt x 358.33875pt>
 File: ../media/lstm_highlight.png Graphic file (type png)
 <use ../media/lstm_highlight.png>
-Package pdftex.def Info: ../media/lstm_highlight.png  used on input line 372.
+Package pdftex.def Info: ../media/lstm_highlight.png  used on input line 395.
 (pdftex.def)             Requested size: 272.01558pt x 179.16893pt.
- [12 <../media/cnn_example.png>]
-<../media/cnn_model.png, id=257, 332.24126pt x 593.21625pt>
+ [14 <../media/cnn_example.png>]
+<../media/cnn_model.png, id=277, 332.24126pt x 593.21625pt>
 File: ../media/cnn_model.png Graphic file (type png)
 <use ../media/cnn_model.png>
-Package pdftex.def Info: ../media/cnn_model.png  used on input line 394.
+Package pdftex.def Info: ../media/cnn_model.png  used on input line 417.
 (pdftex.def)             Requested size: 199.34628pt x 355.9325pt.
- [13 <../media/lstm_highlight.png (PNG copy)>]
-<../media/lstm_model.png, id=265, 312.16624pt x 211.79124pt>
+ [15 <../media/lstm_highlight.png (PNG copy)>]
+<../media/lstm_model.png, id=285, 312.16624pt x 211.79124pt>
 File: ../media/lstm_model.png Graphic file (type png)
 <use ../media/lstm_model.png>
-Package pdftex.def Info: ../media/lstm_model.png  used on input line 406.
+Package pdftex.def Info: ../media/lstm_model.png  used on input line 429.
 (pdftex.def)             Requested size: 187.3012pt x 127.07571pt.
- [14 <../media/cnn_model.png>]
-<../media/multimodal_overview.png, id=276, 697.1646pt x 330.033pt>
+ [16 <../media/cnn_model.png>]
+<../media/multimodal_overview.png, id=295, 697.1646pt x 330.033pt>
 File: ../media/multimodal_overview.png Graphic file (type png)
 <use ../media/multimodal_overview.png>
-Package pdftex.def Info: ../media/multimodal_overview.png  used on input line 420.
+Package pdftex.def Info: ../media/multimodal_overview.png  used on input line 443.
 (pdftex.def)             Requested size: 453.15161pt x 214.51889pt.
 
-Overfull \hbox (19.5316pt too wide) in paragraph at lines 420--421
+Overfull \hbox (19.5316pt too wide) in paragraph at lines 443--444
  [] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[15 <../media/lstm_model.png>] [16 <../media/multimodal_overview.png>]
+[17 <../media/lstm_model.png>] [18 <../media/multimodal_overview.png>]
 Chapter 6.
-<../media/mtf_q.png, id=289, 315.1775pt x 106.3975pt>
+<../media/mtf_q.png, id=309, 315.1775pt x 106.3975pt>
 File: ../media/mtf_q.png Graphic file (type png)
 <use ../media/mtf_q.png>
-Package pdftex.def Info: ../media/mtf_q.png  used on input line 469.
+Package pdftex.def Info: ../media/mtf_q.png  used on input line 492.
 (pdftex.def)             Requested size: 189.10796pt x 63.83897pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[17
+[19
 
  <../media/mtf_q.png>]
-<../media/2d_cnn.png, id=304, 558.085pt x 349.305pt>
+<../media/2d_cnn.png, id=323, 558.085pt x 349.305pt>
 File: ../media/2d_cnn.png Graphic file (type png)
 <use ../media/2d_cnn.png>
-Package pdftex.def Info: ../media/2d_cnn.png  used on input line 517.
+Package pdftex.def Info: ../media/2d_cnn.png  used on input line 537.
 (pdftex.def)             Requested size: 390.65685pt x 244.51183pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[18] [19 <../media/2d_cnn.png>]
+[20] [21 <../media/2d_cnn.png>]
 Chapter 7.
-<../media/results.png, id=317, 602.25pt x 372.39125pt>
+<../media/results.png, id=337, 602.25pt x 372.39125pt>
 File: ../media/results.png Graphic file (type png)
 <use ../media/results.png>
-Package pdftex.def Info: ../media/results.png  used on input line 537.
+Package pdftex.def Info: ../media/results.png  used on input line 557.
 (pdftex.def)             Requested size: 361.35278pt x 223.43646pt.
-[20
+[22
 
  <../media/results.png>]
-<../media/whitebox_images.png, id=326, 882.1758pt x 319.9152pt>
+<../media/whitebox_images.png, id=345, 882.1758pt x 319.9152pt>
 File: ../media/whitebox_images.png Graphic file (type png)
 <use ../media/whitebox_images.png>
-Package pdftex.def Info: ../media/whitebox_images.png  used on input line 564.
+Package pdftex.def Info: ../media/whitebox_images.png  used on input line 583.
 (pdftex.def)             Requested size: 441.08682pt x 159.9572pt.
 
-Overfull \hbox (7.46681pt too wide) in paragraph at lines 564--565
+Overfull \hbox (7.46681pt too wide) in paragraph at lines 583--584
  [] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[21] [22 <../media/whitebox_images.png>]
+[23] [24 <../media/whitebox_images.png>]
 Chapter 8.
-[23
+[25
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 579.
- [24
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 598.
+ [26
 
 
 ]
@@ -748,20 +760,20 @@ Appendix A.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/02/27 1.8b listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 582.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 601.
  (/Users/rubenrosales/Documents/research/thesis/paper/../code/mtf/main.py
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
- [25
+ [27
 
-] [26]
+] [28]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 69.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 69.
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 69.
- [27]
+ [29]
 Overfull \hbox (76.0321pt too wide) in paragraph at lines 78--80
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -771,7 +783,7 @@ Overfull \hbox (3.03865pt too wide) in paragraph at lines 86--87
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[28]
+[30]
 Overfull \hbox (4.4076pt too wide) in paragraph at lines 95--97
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -781,43 +793,43 @@ Overfull \hbox (75.75655pt too wide) in paragraph at lines 8--9
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[29] [30] [31]
+[31] [32] [33]
 Overfull \hbox (13.84647pt too wide) in paragraph at lines 69--70
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[32]
+[34]
 LaTeX Font Info:    Try loading font information for OML+ptm on input line 91.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10.95> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 91.
- [33] [34]) (/Users/rubenrosales/Documents/research/thesis/paper/../code/mtf/util.py [35]
+ [35] [36]) (/Users/rubenrosales/Documents/research/thesis/paper/../code/mtf/util.py [37]
 Overfull \hbox (151.89397pt too wide) in paragraph at lines 22--23
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[36] [37]) [38]
+[38] [39]) [40]
 Appendix B.
-(/Users/rubenrosales/Documents/research/thesis/paper/../code/hybrid_model/main.py [39
+(/Users/rubenrosales/Documents/research/thesis/paper/../code/hybrid_model/main.py [41
 
 ]
 Overfull \hbox (9.81656pt too wide) in paragraph at lines 27--28
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[40]) (/Users/rubenrosales/Documents/research/thesis/paper/../code/hybrid_model/white_box.py [41]
+[42]) (/Users/rubenrosales/Documents/research/thesis/paper/../code/hybrid_model/white_box.py [43]
 Overfull \hbox (27.33583pt too wide) in paragraph at lines 25--27
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[42] [43]
+[44] [45]
 Overfull \hbox (70.77565pt too wide) in paragraph at lines 80--81
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[44] [45]) (/Users/rubenrosales/Documents/research/thesis/paper/../code/hybrid_model/black_box.py [46] [47] [48] [49]
+[46] [47]) (/Users/rubenrosales/Documents/research/thesis/paper/../code/hybrid_model/black_box.py [48] [49] [50] [51]
 Overfull \hbox (36.01997pt too wide) in paragraph at lines 110--111
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -827,7 +839,7 @@ Overfull \hbox (41.49496pt too wide) in paragraph at lines 113--114
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[50]
+[52]
 Overfull \hbox (36.01997pt too wide) in paragraph at lines 120--121
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -847,45 +859,45 @@ Overfull \hbox (41.49496pt too wide) in paragraph at lines 134--135
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[51]
+[53]
 Overfull \hbox (146.6243pt too wide) in paragraph at lines 149--150
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[52] [53] [54]
+[54] [55] [56]
 Overfull \hbox (44.36346pt too wide) in paragraph at lines 217--219
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[55]) (/Users/rubenrosales/Documents/research/thesis/paper/main.bbl [56] [57
+[57]) (/Users/rubenrosales/Documents/research/thesis/paper/main.bbl [58] [59
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 605.
- [58]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 605.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 624.
+ [60]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 624.
  (/Users/rubenrosales/Documents/research/thesis/paper/main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 605.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 605.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 624.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 624.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1D12BF98F44EF3822E91C5BF6F85925A;670.
+(rerunfilecheck)             Checksum: 70035D62755DD860FC2D05AFBCB33AEC;670.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 12666 strings out of 492616
- 188068 string characters out of 6129482
- 453215 words of memory out of 5000000
- 15494 multiletter control sequences out of 15000+600000
+ 12684 strings out of 492616
+ 188421 string characters out of 6129482
+ 453533 words of memory out of 5000000
+ 15505 multiletter control sequences out of 15000+600000
  44969 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,15n,43p,965b,2133s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /Users/rubenrosales/Documents/research/thesis/paper/main.pdf (63 pages, 1112219 bytes).
+Output written on /Users/rubenrosales/Documents/research/thesis/paper/main.pdf (65 pages, 1140104 bytes).
 PDF statistics:
- 1426 PDF objects out of 1440 (max. 8388607)
- 1310 compressed objects within 14 object streams
- 863 named destinations out of 1000 (max. 500000)
- 183 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1448 PDF objects out of 1728 (max. 8388607)
+ 1326 compressed objects within 14 object streams
+ 868 named destinations out of 1000 (max. 500000)
+ 193 words of extra memory for PDF output out of 10000 (max. 10000000)
 
