@@ -69,12 +69,6 @@ Kuan Liu, Yanen Li, Ning Xu, and Prem Natarajan.
 \newblock {\em arXiv:1805.11730 [cs, stat]}, May 2018.
 \newblock arXiv: 1805.11730.
 
-\bibitem{lopez_development_2017}
-Alberto López, Francisco~Javier Martin, David Yangüela, and Constantina
-  Alvarez~Peña.
-\newblock Development of a {Computer} {Writing} {System} {Based} on {EOG}.
-\newblock {\em Sensors}, 17:1505, June 2017.
-
 \bibitem{mesleh_spatial_2008}
 Raed~Y. Mesleh, Harald Haas, Sinan Sinanovic, Chang~Wook Ahn, and Sangboh Yun.
 \newblock Spatial {Modulation}.
@@ -93,6 +87,11 @@ Timothy~J. O'Shea, Johnathan Corgan, and T.~Charles Clancy.
 \newblock Convolutional {Radio} {Modulation} {Recognition} {Networks}.
 \newblock {\em arXiv:1602.04105 [cs]}, June 2016.
 \newblock arXiv: 1602.04105.
+
+\bibitem{smith_mathematics_nodate}
+Julius Smith.
+\newblock Mathematics of the {Discrete} {Fourier} {Transform} ({DFT}): {With}
+  {Audio} {Applications} - {Julius} {Orion} {Smith} - {Google} {Books}.
 
 \bibitem{strang_wavelets_1996}
 G.~Strang and T.~Nguyen.

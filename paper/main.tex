@@ -76,6 +76,7 @@
    \vspace*{\baselineskip} 
 
    By Ruben Rosales \\
+   B.S., 2016, California State University, Fullerton \\
    May 2020
 \end{center}
 
@@ -87,7 +88,7 @@
 
 % To address this issue, we propose an interpretable hybrid model that can be extended to any time series dataset. Our architecture is composed of two models, an ensemble method of classifiers that functions as a black-box model, and a white-box model that encodes time series as an image, attempts to classify them through a CNN, and outputs all images correctly classified in both black-box and white-box models.
 
-In this thesis, we study interpretable machine learning as applied to complex-valued time-series data. Scientists have studied the use of several machine learning methods such as Convolutional Neural Networks, Recurrent Neural Networks, and Support Vector Machines for time series classification. These methods, however, fall short of allowing users to visualize patterns within their dataset.
+In this thesis, we study interpretable machine learning as applied to complex-valued time-series data. Scientists have studied the use of several machine learning methods such as Convolutional Neural Networks, Recurrent Neural Networks, and Support Vector Machines for time series classification. These methods, however, fall short of allowing users to visualize patterns, which can be a necessity for adoption in highly scrutinized industries.
 
 To address this issue, we propose an interpretable hybrid model that can be extended to any time series dataset. In the majority of existing work in the field of interpretability, black-box models tend to outperform white-box models consistently. However, instead of relying purely on one method, we propose a collaboration between the two. This allows for the performance of a black-box model while providing a more precise visualization of our dataset.
 
@@ -99,7 +100,7 @@ To accomplish this, we created a framework composed of two models, an ensemble m
 I want to thank Dr. Moon for his guidance and for allowing me to work on a project this extensive. I would also like to thank my friends and family for their continuous support throughout this thesis.
 
 \tableofcontents
-\listofillustrations
+\listoffigures
 
 \mainmatter
 \chapter{Introduction}
@@ -121,14 +122,23 @@ The goal of our work is not to find an alternative to black-box models, but to p
 % \section{The need for interpretable models in management problems}
 % The growth of mobile devices and demand for wireless data has created a need for igh quality spectrum sensing and adaptation to improve spectral allocation and interference mitigation is an important route by which we may achieve this.  however have been constrained to relatively specialized solutions which lack the generality needed to deal with a complex and growing number emitter types, interference types and propagation environments.
 % This is a significant challenge in the community as expert systems designed to perform well on specialized tasks often lack flexibility and can be expensive and tedious to develop analytically.
+\chapter{Related Work}
+\label{chap:relatedwork}
 
-\section{Contributions}
-We focus on creating deep learning architectures to classify our datasets as well as extending existing work to create our white-box model. Our final results show how robust our black-box model is with its competitive accuracy. Additionally, we show the effectiveness of our white-box model in understanding the features of a dataset not normally exposed through a black-box model.
+The study of interpretable hybrid models has been worked on extensively in the past few years as deep learning has become increasingly popular. Scientists take different approaches as to what makes a hybrid model interpretable and apply it to different domains, such as computer vision or time series. For example, Wang \cite{wang_multilevel_2018}, focuses on creating a black-box model that utilizes wavelet decomposition for the classification of time-series that outperforms similar architectures. However, their white-box model focuses on analyzing the importance of their model's layers. This helps users identify the importance of wavelet decomposition but not necessarily understand their dataset. 
+
+Additionally, other work we found tends to focus on non-time-series data or creating a general framework defining the trade-off between interpretability and black-box methods. For instance, \cite{wang_hybrid_2019} defines a set of rules to achieve a high level of classification with interpretability but does not give any competitive methods to achieve this. 
+
+In order to fill the gap for a high performing interpretable model for time-series classification, we propose our hybrid model, which focuses on extensibility and robustness. We achieve this through a combination of deep learning models for classification as well as a unique white-box method to explain features within classes of a given dataset.
+
+
+% \section{Contributions}
+% We focus on creating deep learning architectures to classify our datasets as well as extending existing work to create our white-box model. Our final results show how robust our black-box model is with its competitive accuracy. Additionally, we show the effectiveness of our white-box model in understanding the features of a dataset not normally exposed through a black-box model.
 
 
 \chapter{Data}
 
-We analyzed our model on three radio signal datasets, which we will refer to as dataset A, B, and C throughout this thesis. These datasets were generated through Spatial Modulation which is a transmission technique that uses multiple antennae which maps a block of information bits to two units, a symbol chosen from a constellation diagram, and a unique transmit antenna number that is chosen from a set of transmit antennae \cite{mesleh_spatial_2008}. The method in which transmit antennae send and receive radio waves can be described through polarization. Two popular basis polarizations are horizontal linear, H, and vertical linear, V \cite{oshea_convolutional_2016}. Our datasets contain data horizontally transmitted and vertically received (HV), as well as data vertically transmitted and vertically received (VV).
+We analyzed our model on three radio signal datasets, which we will refer to as dataset A, B, and C throughout this thesis. These datasets were generated through Spatial Modulation, which is a transmission technique that uses multiple antennae to map a block of information bits to two units, a symbol chosen from a constellation diagram, and a unique transmit antenna number that is chosen from a set of transmit antennae \cite{mesleh_spatial_2008}. The method in which transmit antennae send and receive radio waves can be described through polarization. Two popular basis polarizations are horizontal linear, H, and vertical linear, V \cite{oshea_convolutional_2016}. Our datasets contain data horizontally transmitted and vertically received (HV), as well as data vertically transmitted and vertically received (VV).
 
 \begin{figure}[h!]
    \begin{center}
@@ -167,15 +177,6 @@ Dataset B differs from dataset A and C in how it transmits data. In \ref{fig:dat
 % [ What is raw signal and discrete, compare them, ]
 % [explain hv, vv]
 
-\chapter{Related Work}
-\label{chap:relatedwork}
-
-The study of interpretable hybrid models has been worked on extensively in the past few years as deep learning has become increasingly popular. Scientists take different approaches as to what makes a hybrid model interpretable and apply it to different domains, such as computer vision or time series. For example, in \cite{wang_multilevel_2018}, they focus on creating a black-box model for the classification of time-series that outperforms similar architectures. However, their white-box model focuses on analyzing the importance of their model's layers. This helps users identify the importance of wavelet decomposition but not necessarily understand their dataset. 
-
-Additionally, other work we found tends to focus on non-time-series data or creating a general framework defining the trade-off between interpretability and black-box methods. For instance, \cite{wang_hybrid_2019} defines a set of rules to achieve a high level of classification with interpretability but does not give any competitive methods to achieve this. 
-
-In order to fill the gap for a high performing interpretable model for time-series classification, we propose our hybrid model, which focuses on extensibility and robustness. We achieve this through a combination of deep learning models for classification as well as a unique white-box method to explaining features within classes of a given dataset.
-
 
 \chapter{Preprocessing}
 \label{chap:preprocessing}
@@ -208,7 +209,17 @@ We tried numerous methods to extract real-valued features, including Fourier Tra
 % [what is it]
 
 % [fft formula]
-The Fourier Transform (FT) is a mathematical tool that decomposes any function into a sum of sinusoidal basis functions. Each basis function is a complex value of a frequency, allowing us to view our data in the frequency domain as opposed to the amplitude domain.
+The Fourier Transform (FT) is a mathematical tool that decomposes any function into a sum of sinusoidal basis functions. Each basis function is a complex value of a frequency, allowing us to view our data in the frequency domain as opposed to the amplitude domain. Our dataset are discrete in time domain so we focus on discrete fourier transforms. The discrete fourier transform of a signal x can be defined as 
+
+\begin{equation} \label{eq1}
+   \begin{split}
+      X_{k} =  \sum_{n=0}^{N-1} x(n) e^{-\frac{i2\pi kn}{N}}
+   \end{split}
+\end{equation}
+
+where x(t\textsubscript{n}) is the input signal at time n, X(k) is the \textit{k}th spectral sample \cite{smith_mathematics_nodate}.
+
+
 
 One of the shortcomings of the FT is rooted in the Heisenberg Uncertainty Principle (HUP) \cite{hill_uncertainty_nodate}.  The HUP states that the position and velocity of an object cannot be simultaneously measured, which can be applied to the time-frequency information of a signal. This means we cannot know which spectral components exist at any given time. The closest we can get is sampling at different ranges of time and finding a range of frequencies within that time frame. This method is described as the Short-Time Fourier Transform.
 
@@ -223,11 +234,19 @@ One of the shortcomings of the FT is rooted in the Heisenberg Uncertainty Princi
 \subsection{Short-Time Fourier Transform}
 % [stft]
 The Short-Time Fourier transform (STFT) is a Fourier related transform used to determine the sinusoidal frequency and phase content of local sections of a signal as it changes over time \cite{hill_uncertainty_nodate}.
-Computing STFT requires the signal to be divided into segments of equal length and then have the FT applied to that segment \cite{allen_unified_1977}. This allows us to view the Fourier spectrum at a more granular level, which could potentially reveal different patterns amongst signals of different classes.
+Computing STFT requires the signal to be divided into segments of equal length and then have the FT applied to that segment \cite{allen_unified_1977}. This allows us to view the Fourier spectrum at a more granular level, which could potentially reveal different patterns amongst signals of different classes. 
 
+We can explain STFT through an example. Let x(n) be a signal, and let X\textsubscript{n}(e\textsuperscript{j$\omega\kappa$}) be the short-time Fourier transform of x(n) at time n and frequency $\omega$\textsubscript{$\kappa$} (Figure \ref{fig:stft_example}) \cite{allen_unified_1977}. 
+
+\begin{figure}[h]
+   \begin{center}
+      \includegraphics[scale=0.6]{../media/stft_eq.png}
+   \end{center}
+   \caption{Example of short-time fourier transform formula \cite{allen_unified_1977}.}
+   \label{fig:stft_example}
+\end{figure}
 
 One of the issues with this method is that we can create very narrow window sizes, giving us a better understanding of the data with respect to time but losing an understanding of the frequency domain as a whole. Additionally, selecting an appropriate window size for segmenting the signal can be an arduous task that would require fine-tuning as well as increasing the dimensionality of a dataset.
-
 
 \begin{figure}[h]
    \begin{center}
@@ -274,13 +293,13 @@ The representation of a complex number as a sum of a real and imaginary number, 
 Wavelet transforms are similar to the FT in that they deconstruct a signal using representations of other signals \cite{misiti_wavelets_2013}. The key difference is that wavelet signals are finite in time and frequency as opposed to sine and cosine signals, which can carry on indefinitely \cite{strang_wavelets_1996}. This allows us to extract information from a signal with respect to time and location.
 
 
-\begin{figure}[h!]
-   \begin{center}
-      \includegraphics[scale=0.4]{../media/wavelet_families.png}
-   \end{center}
-   \caption{Example of different types of wavelets \cite{lopez_development_2017}.}
-   \label{fig:reinforcementAgent}
-\end{figure}
+% \begin{figure}[h!]
+%    \begin{center}
+%       \includegraphics[scale=0.4]{../media/wavelet_families.png}
+%    \end{center}
+%    \caption{Example of different types of wavelets \cite{lopez_development_2017}.}
+%    \label{fig:reinforcementAgent}
+% \end{figure}
 
 
 A signal is analyzed using different versions of dilated and translated basis functions called the mother wavelet  \cite{strang_wavelets_1996}. There are two types of wavelet transformations, discrete and continuous \cite{imani_curve_2016}. In this thesis, we focus on discrete wavelet transformations, which use a discrete set of wavelet scales and translations to decompose the signal into a mutually orthogonal set of wavelets. 
@@ -338,7 +357,7 @@ A neural network requires all data to be the same shape. However, because we dow
 We use spline interpolation to resize each level of decomposition into a single array because it allows to retain properties of our original data even in a higher dimension \cite{gregory_shape_1985}. We tested different sizes of interpolation from N to N/3, where N is the size of the largest discrete signal size, and found no reduction in performance.
  
 \subsection{Each Level of Decomposition as a Dataset}
-Figure \ref{fig:multimodal_overview} depicts our model in which each level of decomposition is a unique dataset. This method and the resampling method both achieved similar results, so we chose to move forward with this method.
+Figure \ref{fig:wavelet_decomp} depicts our model in which each level of decomposition is a unique dataset. This method and the resampling method both achieved similar results, so we chose to move forward with this method.
 
 
 
@@ -359,12 +378,12 @@ Figure \ref{fig:multimodal_overview} depicts our model in which each level of de
 
 
 \section{Definition}
-Machine learning algorithms can be seen as learning a target function (f) that maps input data (X) to an output (Y). There are several techniques to make this work, but we focus on nonparametric algorithms, namely Convolutional Neural Networks (CNN) and Long Short-Term Memory networks (LSTM). Nonparametric algorithms attempt to make minimal assumptions about the form of the function to learn any form from data provided to it. An example would be a neural network as it has no prior knowledge of what it is classifying and attempts to generalize any new data points.
+Machine learning algorithms can be seen as learning a target function (f) that maps input data (X) to an output (Y). Then, f is used to make predictions on new input data. There are several techniques to make this work, but we focus on nonparametric algorithms, namely Convolutional Neural Networks (CNN) and Long Short-Term Memory networks (LSTM). Nonparametric algorithms attempt to make minimal assumptions about the form of the function to learn any form from data provided to it. An example would be a neural network as it has no prior knowledge of what it is classifying and attempts to generalize any new data points.
 
 \subsection{CNN}
 % [cnn]
 
-A Convolutional Neural Network is a type of deep neural network that can be applied to different domains such as computer vision or time series analysis. As seen in Figure X, it consists of an input and output layer as well as several hidden layers. A convolution is an operation between a vector of weights w against an input x \cite{yamashita_convolutional_2018}. It consists of taking the dot product between m and x in steps of a filter size defined by n.
+A Convolutional Neural Network is a type of deep neural network that can be applied to different domains such as computer vision or time series analysis. As seen in Figure \ref{fig:cnn_example}, it consists of an input and output layer as well as several hidden layers. A convolution is an operation between a vector of weights w against an input x \cite{yamashita_convolutional_2018}. It consists of taking the dot product between m and x in steps of a filter size defined by n.
 
 Convolutional Neural Networks perform feature learning via non-linear transformations implemented as a series of layers \cite{aqib_smarter_2019}. The input data is a multidimensional array, called a tensor. The tensor is passed through an input layer, followed by a series of hidden layers to extract features, and an output layer, which in the case of classification, gives a probability for each class. 
 
@@ -552,18 +571,16 @@ Our black-box model is constructed of three different architectures: 1 LSTM and 
 Additionally, we tested our model using three levels of decomposition using the property VV as well as a combination of both VV and HV. We found no change in accuracy, therefore to limit the number of models we used, we only utilized the HV property.
 
 
+To test our model, we split our data into training and test sets by randomly selecting 70\% of our data as our training set and leaving the other 30\% to be our test set. We then performed three-fold cross-validation and took the average of our results as the outcome. As can be seen in Figure \ref{fig:final_results}, dataset A and C achieved similar accuracy, around 99\%, and dataset B averaged at around 91\% accuracy.
+
+
 \begin{figure}[h!]
    \begin{center}
       \includegraphics[scale=0.6]{../media/results.png}
    \end{center}
-   \caption{Results}
+   \caption{Accuracy on test data for our black-box model.}
    \label{fig:final_results}
 \end{figure}
-
-
-To test our model, we split our data into training and test sets by randomly selecting 70\% of our data as our training set and leaving the other 30\% to be our test set. We then performed three-fold cross-validation and took the average of our results as the outcome.
-
-
 
 \section{Dataset C}
 
@@ -576,7 +593,7 @@ Given that this dataset is ten times larger than our other two datasets, we want
  
 In order to generate images using MTF, we have to select three properties, and we chose P\textsubscript{1} as the radial value of HV's amplitude value, P\textsubscript{2} as the radial value of VV's amplitude value, and P\textsubscript{3} as the absolute squared distance between every P\textsubscript{1} and P\textsubscript{2}. 
 
-We then split those images using a randomized 70/30 split where 70\% of the data is our training set, and the other 30\% is our test set. We were able to achieve 60\% accuracy across all three of our datasets and show the features amongst the classes behave differently, as can be seen in Figure \ref{fig:whitebox_images}.
+We then split those images using a randomized 70/30 split where 70\% of the data is our training set, and the other 30\% is our test set. Afterward, we trained our CNN (Figure \ref{fig:mtf_cnn_model}) on those images and were able to achieve 60\% accuracy across all three of our datasets and show the features amongst the classes behave differently, as can be seen in Figure \ref{fig:whitebox_images}.
 
 \begin{figure}[h!]
    \begin{center}
@@ -595,27 +612,23 @@ We proposed an extension to existing work described in \cite{wang_encoding_nodat
 
 In the future, we would like to explore other methods for our white-box model that would act as an alternative to Markov Transition Fields in hopes that it produces higher accuracy than our current model. Additionally, we would like to extensively test our model on different time-series datasets outside of radio signal datasets.
 
-\begin{appendices}
-   \chapter{MTF Code}
-      \section{Main File}
-         \lstinputlisting[language=Python,  basicstyle=\small, columns=fullflexible ]{../code/mtf/main.py}
-      \section{Calculating MTF}
-         \lstinputlisting[language=Python,  basicstyle=\small, columns=fullflexible]{../code/mtf/complex_signal.py}
-      \section{Helper functions}
-         \lstinputlisting[language=Python,  basicstyle=\small, columns=fullflexible]{../code/mtf/util.py}
-   \chapter{Hybrid Model Code}
-      \section{Main File}
-         \lstinputlisting[language=Python,  basicstyle=\small, columns=fullflexible]{../code/hybrid_model/main.py}
-      \section{White-Box Model}
-         \lstinputlisting[language=Python,  basicstyle=\small, columns=fullflexible]{../code/hybrid_model/white_box.py}
-      \section{Black-Box Model}
-         \lstinputlisting[language=Python,  basicstyle=\small, columns=fullflexible]{../code/hybrid_model/black_box.py}
+% \begin{appendices}
+%    \chapter{MTF Code}
+%       \section{Main File}
+%          \lstinputlisting[language=Python,  basicstyle=\small, columns=fullflexible ]{../code/mtf/main.py}
+%       \section{Calculating MTF}
+%          \lstinputlisting[language=Python,  basicstyle=\small, columns=fullflexible]{../code/mtf/complex_signal.py}
+%       \section{Helper functions}
+%          \lstinputlisting[language=Python,  basicstyle=\small, columns=fullflexible]{../code/mtf/util.py}
+%    \chapter{Hybrid Model Code}
+%       \section{Main File}
+%          \lstinputlisting[language=Python,  basicstyle=\small, columns=fullflexible]{../code/hybrid_model/main.py}
+%       \section{White-Box Model}
+%          \lstinputlisting[language=Python,  basicstyle=\small, columns=fullflexible]{../code/hybrid_model/white_box.py}
+%       \section{Black-Box Model}
+%          \lstinputlisting[language=Python,  basicstyle=\small, columns=fullflexible]{../code/hybrid_model/black_box.py}
 
-
-
-
-
-\end{appendices}
+% \end{appendices}
 
 
 \bibliography{../references/main}

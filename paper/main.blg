@@ -10,43 +10,43 @@ Warning--empty journal in wang_encoding_nodate
 Warning--empty year in wang_encoding_nodate
 You've used 19 entries,
             2118 wiz_defined-function locations,
-            608 strings with 7922 characters,
-and the built_in function-call counts, 6682 in all, are:
-= -- 630
-> -- 395
+            606 strings with 7906 characters,
+and the built_in function-call counts, 6523 in all, are:
+= -- 614
+> -- 379
 < -- 4
-+ -- 157
-- -- 136
-* -- 496
-:= -- 1158
-add.period$ -- 69
++ -- 151
+- -- 130
+* -- 471
+:= -- 1126
+add.period$ -- 68
 call.type$ -- 19
-change.case$ -- 123
+change.case$ -- 120
 chr.to.int$ -- 0
 cite$ -- 24
-duplicate$ -- 239
-empty$ -- 449
-format.name$ -- 136
-if$ -- 1349
+duplicate$ -- 235
+empty$ -- 448
+format.name$ -- 130
+if$ -- 1322
 int.to.chr$ -- 0
 int.to.str$ -- 19
-missing$ -- 21
-newline$ -- 109
+missing$ -- 20
+newline$ -- 108
 num.names$ -- 38
-pop$ -- 128
+pop$ -- 131
 preamble$ -- 1
-purify$ -- 106
+purify$ -- 103
 quote$ -- 0
-skip$ -- 166
+skip$ -- 169
 stack$ -- 0
-substring$ -- 287
+substring$ -- 275
 swap$ -- 44
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 72
 warning$ -- 5
-while$ -- 55
+while$ -- 54
 width$ -- 21
-write$ -- 222
+write$ -- 218
 (There were 5 warnings)
