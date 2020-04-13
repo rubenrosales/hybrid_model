@@ -1,4 +1,4 @@
-\documentclass{turabian-thesis}
+\documentclass{turabian-thesis}[12pt]
 
 \usepackage{graphicx}
 \usepackage{subcaption}
@@ -15,29 +15,66 @@
 \usepackage{nameref}
 \usepackage{setspace}
 \usepackage{listings}
+\usepackage{mathptmx}
+
+
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\l@section}
+  {\hfil}
+  {\leaders\hbox{\normalfont$\m@th\mkern \@dotsep mu\hbox{.}\mkern \@dotsep mu$}\hfill}
+  {}{}
+\makeatother
+\usepackage[english]{babel}
+\usepackage[font=bf, figurename=FIGURE, labelsep=period]{caption}
+
+
+\addto\captionsenglish{% Replace "english" with the language you use
+  \renewcommand{\contentsname}%
+    {TABLE OF CONTENTS}%
+}
+\usepackage{titlesec}
+
+
+% \usepackage{tocloft}
+% \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\usepackage{tocbibind}
+\usepackage[titles]{tocloft}
+ \renewcommand \cftchapdotsep{1.5}
+
+ \renewcommand{\cfttoctitlefont}{\normalfont\Large}% Remove \bfseries from ToC title
+ \renewcommand{\cftsecfont}{}% Remove \bfseries from section titles in ToC
+ \renewcommand{\cftsecpagefont}{}% Remove \bfseries from section titles' page in ToC
+
+\let\chaptername\relax
+
+\renewcommand{\cftchapnumwidth}{6em}
+
+\addto{\captionsenglish}{\renewcommand{\bibname}{REFERENCES}}
+
+\addto\captionsenglish{\renewcommand{\chaptername}{CHAPTER}}
+
 
 \usepackage[toc,page]{appendix}
 
+% 1 inch margin
+\usepackage[margin=1in]{geometry}
 
 \DeclareUnicodeCharacter{2215}{\textminus}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \algdef{SE}[DOWHILE]{Do}{DoWhile}{\algorithmicdo}[1]{\algorithmicwhile\ #1}%
 
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}{Lemma}
-\newtheorem{corollary}{Corollary}
-\newtheorem{claim}{Claim}
-\newtheorem{definition}{Definition}
-\newtheorem{problem}{Problem}
+\usepackage{fancyhdr}
+\fancypagestyle{headings}{%
+\cfoot{\thepage}
+}
+\pagestyle{headings}
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
 
-\newcounter{case}[section]
-\newenvironment{case}[1][]{\refstepcounter{case}\par\medskip
-   \textbf{Case~\thecase. #1} \rmfamily}{\medskip}
-   
-\newcounter{subcase}[case]
-\newenvironment{subcase}[1][]{\refstepcounter{subcase}\par\medskip
-   \textbf{Case~\thecase.\thesubcase. #1} \rmfamily}{\medskip}
 
 \begin{document}
 
@@ -46,7 +83,7 @@
 
 \begin{center}
    
-   \textbf{Hybrid Model for Interpretable Time Series Analysis}
+   \textbf{HYBRID MODEL FOR INTERPRETABLE TIME SERIES ANALYSIS}
    
    \vspace*{\baselineskip} 
       
@@ -82,7 +119,7 @@
 
 \pagebreak
 
-\chapter*{Abstract}
+\chapter*{ABSTRACT}
 
 % In this thesis, we study interpretable machine learning as applied to complex-valued time series data. Scientists have studied the use of several machine learning methods such as Convolutional Neural Networks, Recurrent Neural Networks, and Support Vector Machines for time series classification. These methods, however, fall short of allowing users to visualize patterns within their dataset.
 
@@ -94,16 +131,22 @@ To address this issue, we propose an interpretable hybrid model that can be exte
 
 To accomplish this, we created a framework composed of two models, an ensemble method of classifiers that functions as a black-box model, and a white-box model that encodes time series as images. The white-box model attempts to classify them through a neural network and outputs all images correctly classified in both black-box and white-box models.
 
-\addcontentsline{toc}{chapter}{Abstract}
-\chapter{Acknowledgments}
+\addcontentsline{toc}{chapter}{ABSTRACT}
+\chapter{ACKNOWLEDGMENTS}
 
 I want to thank Dr. Moon for his guidance and for allowing me to work on a project this extensive. I would also like to thank my friends and family for their continuous support throughout this thesis.
 
+\newpage
+% {\let\bfseries\mdseries% ...or \let\bfseries\relax
 \tableofcontents
+% }
+\newpage
+
+\renewcommand{\listfigurename}{LIST OF FIGURES}
 \listoffigures
 
 \mainmatter
-\chapter{Introduction}
+\chapter{INTRODUCTION}
 \label{chap:introduction}
 
 As time-series datasets become ever more popular, the need for deep learning models becomes that much greater. In our black-box model, we analyze deep learning models such as Convolutional Neural Networks, which have become increasingly popular and widely used in the last decade  \cite{cui_multi-scale_2016}. However, their complex nature results in a lack of understanding of its inner workings \cite{wang_hybrid_2019}.
@@ -122,7 +165,7 @@ The goal of our work is not to find an alternative to black-box models, but to p
 % \section{The need for interpretable models in management problems}
 % The growth of mobile devices and demand for wireless data has created a need for igh quality spectrum sensing and adaptation to improve spectral allocation and interference mitigation is an important route by which we may achieve this.  however have been constrained to relatively specialized solutions which lack the generality needed to deal with a complex and growing number emitter types, interference types and propagation environments.
 % This is a significant challenge in the community as expert systems designed to perform well on specialized tasks often lack flexibility and can be expensive and tedious to develop analytically.
-\chapter{Related Work}
+\chapter{RELATED WORK}
 \label{chap:relatedwork}
 
 The study of interpretable hybrid models has been worked on extensively in the past few years as deep learning has become increasingly popular. Scientists take different approaches as to what makes a hybrid model interpretable and apply it to different domains, such as computer vision or time series. For example, Wang \cite{wang_multilevel_2018}, focuses on creating a black-box model that utilizes wavelet decomposition for the classification of time-series that outperforms similar architectures. However, their white-box model focuses on analyzing the importance of their model's layers. This helps users identify the importance of wavelet decomposition but not necessarily understand their dataset. 
@@ -136,7 +179,7 @@ In order to fill the gap for a high performing interpretable model for time-seri
 % We focus on creating deep learning architectures to classify our datasets as well as extending existing work to create our white-box model. Our final results show how robust our black-box model is with its competitive accuracy. Additionally, we show the effectiveness of our white-box model in understanding the features of a dataset not normally exposed through a black-box model.
 
 
-\chapter{Data}
+\chapter{DATA}
 
 We analyzed our model on three radio signal datasets, which we will refer to as dataset A, B, and C throughout this thesis. These datasets were generated through Spatial Modulation, which is a transmission technique that uses multiple antennae to map a block of information bits to two units, a symbol chosen from a constellation diagram, and a unique transmit antenna number that is chosen from a set of transmit antennae \cite{mesleh_spatial_2008}. The method in which transmit antennae send and receive radio waves can be described through polarization. Two popular basis polarizations are horizontal linear, H, and vertical linear, V \cite{oshea_convolutional_2016}. Our datasets contain data horizontally transmitted and vertically received (HV), as well as data vertically transmitted and vertically received (VV).
 
@@ -178,8 +221,8 @@ Dataset B differs from dataset A and C in how it transmits data. In \ref{fig:dat
 % [explain hv, vv]
 
 
-\chapter{Preprocessing}
-\label{chap:preprocessing}
+\chapter{PREPROCESSING}
+\label{preprocessing}
 
 The radio signal data is presented in a complex-valued format that is unusable in a typical neural network, so in an attempt to make our model robust and reduce any complexity, we focused on using real values as features.
 
@@ -370,7 +413,7 @@ Figure \ref{fig:wavelet_decomp} depicts our model in which each level of decompo
 \end{figure}
 
 
-\chapter{Models}
+\chapter{MODELS}
 \label{chap:models}
 
 % [introduce models definitions]
@@ -435,7 +478,7 @@ Our CNN architecture consists of 3 convolutional layers each followed by a batch
    \begin{center}
       \includegraphics[scale=0.6]{../media/cnn_model.png}
    \end{center}
-   \caption{CNN architecture used in our black-box model.}  
+   \caption{CNN architecture used in our black-box model.}
     \label{fig:cnn_model}
 \end{figure}
 
@@ -475,7 +518,7 @@ We propose a multimodal learning architecture for time series classification, wh
 % [add figure]
 
  
-\chapter{Markov Transition Fields}
+\chapter{MARKOV TRANSITION FIELDS}
 \label{chap:mtf}
 
 % We propose a framework similar to [] for encoding dynamical transition statistics,
@@ -562,7 +605,7 @@ We apply MTF to our dataset and classify our images using a network similar to A
 % [add results]
 
 
-\chapter{Main Results}
+\chapter{MAIN RESULTS}
 \label{chap:results}
 
 \section{Black-Box Model}
@@ -604,7 +647,7 @@ We then split those images using a randomized 70/30 split where 70\% of the data
 \end{figure}
 
 
-\chapter{Conclusion}
+\chapter{CONCLUSION}
 \label{chap:conclusion}
 Throughout this thesis, we have stressed the importance of a hybrid machine learning algorithm as well as provided a framework that can successfully classify and visualize different classes when applied to time-series data. 
 

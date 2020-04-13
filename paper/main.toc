@@ -1,35 +1,37 @@
-\contentsline {chapter}{Abstract}{ii}{chapter*.1}% 
-\contentsline {chapter}{Acknowledgments}{iii}{chapter*.2}% 
-\contentsline {chapter}{Figures}{v}{chapter*.4}% 
-\protect \addvspace {\tf@singlelineskip }
-\contentsline {chapter}{\numberline {Chapter 1}Introduction}{1}{chapter.1}% 
-\contentsline {chapter}{\numberline {Chapter 2}Related Work}{2}{chapter.2}% 
-\contentsline {chapter}{\numberline {Chapter 3}Data}{3}{chapter.3}% 
-\contentsline {section}{Dataset Classes}{4}{section*.7}% 
-\contentsline {chapter}{\numberline {Chapter 4}Preprocessing}{6}{chapter.4}% 
-\contentsline {section}{Transformations}{6}{section*.10}% 
-\contentsline {subsection}{Fourier Transform}{6}{section*.11}% 
-\contentsline {subsection}{Short-Time Fourier Transform}{7}{section*.12}% 
-\contentsline {subsection}{Sliding Window Method}{8}{section*.15}% 
-\contentsline {subsection}{Polar Coordinates}{9}{section*.16}% 
-\contentsline {subsection}{Wavelets}{9}{section*.17}% 
-\contentsline {section}{Data Shape}{10}{section*.18}% 
-\contentsline {subsection}{Resampling}{10}{section*.19}% 
-\contentsline {subsection}{Each Level of Decomposition as a Dataset}{10}{section*.20}% 
-\contentsline {chapter}{\numberline {Chapter 5}Models}{12}{chapter.5}% 
-\contentsline {section}{Definition}{12}{section*.22}% 
-\contentsline {subsection}{CNN}{12}{section*.23}% 
-\contentsline {subsection}{LSTM}{13}{section*.25}% 
-\contentsline {subsection}{Multimodal Deep Learning}{14}{section*.27}% 
-\contentsline {section}{Architectures Used}{15}{section*.28}% 
-\contentsline {subsection}{CNN}{15}{section*.29}% 
-\contentsline {subsection}{LSTM}{15}{section*.31}% 
-\contentsline {subsection}{Final Model}{16}{section*.33}% 
-\contentsline {chapter}{\numberline {Chapter 6}Markov Transition Fields}{18}{chapter.6}% 
-\contentsline {section}{Method}{18}{section*.35}% 
-\contentsline {section}{Classification}{19}{section*.38}% 
-\contentsline {chapter}{\numberline {Chapter 7}Main Results}{21}{chapter.7}% 
-\contentsline {section}{Black-Box Model}{21}{section*.40}% 
-\contentsline {section}{Dataset C}{21}{section*.42}% 
-\contentsline {section}{ MTF }{22}{section*.43}% 
-\contentsline {chapter}{\numberline {Chapter 8}Conclusion}{24}{chapter.8}% 
+\babel@toc {english}{}
+\contentsline {chapter}{ABSTRACT}{ii}{chapter*.1}% 
+\contentsline {chapter}{ACKNOWLEDGMENTS}{iii}{chapter*.2}% 
+\contentsline {chapter}{TABLE OF CONTENTS}{iv}{chapter*.3}% 
+\contentsline {chapter}{LIST OF FIGURES}{v}{chapter*.4}% 
+\contentsline {chapter}{\numberline {CHAPTER 1}INTRODUCTION}{1}{chapter.1}% 
+\contentsline {chapter}{\numberline {CHAPTER 2}RELATED WORK}{2}{chapter.2}% 
+\contentsline {chapter}{\numberline {CHAPTER 3}DATA}{3}{chapter.3}% 
+\contentsline {section}{Dataset Classes}{4}{figure.caption.6}% 
+\contentsline {chapter}{\numberline {CHAPTER 4}PREPROCESSING}{6}{chapter.4}% 
+\contentsline {section}{Transformations}{6}{chapter.4}% 
+\contentsline {subsection}{Fourier Transform}{6}{chapter.4}% 
+\contentsline {subsection}{Short-Time Fourier Transform}{7}{equation.4.0.1}% 
+\contentsline {subsection}{Sliding Window Method}{8}{figure.caption.10}% 
+\contentsline {subsection}{Polar Coordinates}{9}{figure.caption.10}% 
+\contentsline {subsection}{Wavelets}{9}{figure.caption.10}% 
+\contentsline {section}{Data Shape}{10}{figure.caption.10}% 
+\contentsline {subsection}{Resampling}{10}{figure.caption.10}% 
+\contentsline {subsection}{Each Level of Decomposition as a Dataset}{10}{figure.caption.10}% 
+\contentsline {chapter}{\numberline {CHAPTER 5}MODELS}{12}{chapter.5}% 
+\contentsline {section}{Definition}{12}{chapter.5}% 
+\contentsline {subsection}{CNN}{12}{chapter.5}% 
+\contentsline {subsection}{LSTM}{13}{figure.caption.12}% 
+\contentsline {subsection}{Multimodal Deep Learning}{14}{figure.caption.13}% 
+\contentsline {section}{Architectures Used}{15}{figure.caption.13}% 
+\contentsline {subsection}{CNN}{15}{figure.caption.13}% 
+\contentsline {subsection}{LSTM}{16}{figure.caption.14}% 
+\contentsline {subsection}{Final Model}{16}{figure.caption.15}% 
+\contentsline {chapter}{\numberline {CHAPTER 6}MARKOV TRANSITION FIELDS}{18}{chapter.6}% 
+\contentsline {section}{Method}{18}{chapter.6}% 
+\contentsline {section}{Classification}{19}{figure.caption.18}% 
+\contentsline {chapter}{\numberline {CHAPTER 7}MAIN RESULTS}{21}{chapter.7}% 
+\contentsline {section}{Black-Box Model}{21}{chapter.7}% 
+\contentsline {section}{Dataset C}{21}{figure.caption.20}% 
+\contentsline {section}{ MTF }{22}{figure.caption.20}% 
+\contentsline {chapter}{\numberline {CHAPTER 8}CONCLUSION}{24}{chapter.8}% 
+\contentsline {chapter}{REFERENCES}{25}{chapter*.22}% 
